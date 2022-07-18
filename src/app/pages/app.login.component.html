@@ -1,0 +1,54 @@
+<div class="login-body" [ngClass]="{'layout-dark': dark, 'layout-light': !dark}">
+
+    <div class="login-content">
+        <div class="night-switch">
+            <p-button styleClass="dark-switch"  icon="pi pi-circle-on" (click)="dark = true"></p-button>
+            <p-button styleClass="light-switch"  icon="pi pi-circle-off" (click)="dark = false"></p-button>
+        </div>
+        
+        <p-blockUI  [blocked]="formDisabled">
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+        </p-blockUI>
+        
+
+           <div class="login-panel">
+                <div class="login-panel-content">
+                    <div >
+                        <img [src]="imgLogo" alt="Satelital" width="250"/>
+                    </div>
+                    
+                    <!-- <h1>Satelital</h1> -->
+                    <p>Bienvenido, ingrese para iniciar sesión</p>
+                    <div #formLogin class="forms">
+                        <div class="login-input-wrapper">
+                            <label for="username">Username</label>
+                            <input id="username" pInputText placeholder="Type your username..."   [(ngModel)]="user"/>
+                            <i class="pi pi-user"></i>
+                        </div>
+    
+                        <div class="login-input-wrapper">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Type your password"  [(ngModel)]="password" pPassword [feedback]="false"/>
+                            <i class="pi pi-lock"></i>
+                   
+                        </div>
+                           
+                        <div class="col-12">
+                               <p-message *ngIf="showErrorService" severity="error" text="{{showErrorService.detail}}"></p-message> 
+                        </div>    
+                        <div class="col-12">
+                            <p-checkbox [(ngModel)]="checked" label="Remember me" value="SaveInfo" binary="true"></p-checkbox>
+                        </div>
+    
+    
+                        <div class="buttons">
+                            <button pButton type="button"  (click)="loginUser()" label="Login"></button>
+                            <!-- <a href="#" class="secondary-button">Forget Password?</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        <div class="desert"></div>
+    </div>
+</div>

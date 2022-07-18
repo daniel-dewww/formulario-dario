@@ -1,0 +1,19 @@
+<div class="moviles">
+    <!-- {{lstMovilModal | json}} -->
+    <div class="moviles-operaciones" *ngFor="let movil of lstMovilModal">
+        <nexus-icon-movil [(cantidad)]="movil.cantidad!" [placeholderMovil]="movil.estadoConductor!" [colorHex]="movil.colorEstadoConductor!"
+            (onClick)="modalMensaje()"></nexus-icon-movil>
+    </div>
+    <!-- <div class="moviles-operaciones">
+        <nexus-icon-movil [(cantidad)]="cantidadMEnServicio" [placeholderMovil]="MEnServicio" [colorHex]="colorHexEnServicio"
+            (onClick)="modalMensaje()"></nexus-icon-movil>
+    </div>
+    <div class="moviles-operaciones">
+        <nexus-icon-movil [(cantidad)]="cantidadMOcupado" [placeholderMovil]="MOcupado" [colorHex]="colorHexOcupado"
+            (onClick)="modalMensaje()"></nexus-icon-movil>
+    </div>
+    <div class="moviles-operaciones">
+        <nexus-icon-movil [(cantidad)]="cantidadMFinJornada" [placeholderMovil]="MFinJornada" [colorHex]="colorHexFinJornada"
+            (onClick)="modalMensaje()"></nexus-icon-movil>
+    </div> -->
+</div>

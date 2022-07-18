@@ -1,0 +1,1845 @@
+{
+    "ERROR": "Erreur",
+    "404": "404",
+    "500": "500",
+    "503": "503",
+    "UPON_VERSION": {
+        "TITLE": "There is a new version available",
+        "LABEL": "Reload to have the latest version",
+        "TEXT_BUTTON": "Accept"
+    },
+    "MENU": {
+        "PROFILE": "Profile",
+        "SIGNOUT": "Signout",
+        "SHORTCUT": "Shortcut",
+        "HOME": "HOME",
+        "MODULO_OPERACIONES": "Operations",
+        "MODULO_MONITOREO_MOVIL": "Mobile Monitoring",
+        "MODULO_MI_EMPRESA": "My Company",
+        "REPORTS_MODULE": "Reports",
+        "MI_EMPRESA": {
+            "DATOS_GENERALES": "General Data",
+            "CONFIGURACION": "Configuration",
+            "CONFIGURACION_COLOR": "Color Configuration",
+            "OTRAS_CONFIGURACIONES": "Other Settings"
+        },
+        "MODULO_MANTENEDORES": "Maintainer",
+        "MANTENEDORES": {
+            "CONDUCTOR": "Driver",
+            "VEHICULO": "Vehicle",
+            "COMPANY": "Company",
+            "MESSAGE_HISTORY": "Message",
+            "USER": "User",
+            "ZONE": "Zone",
+            "COSTCENTER": "Cost Center",
+            "AREA": "area",
+            "CLIENT_COMPANY": "Client"
+        },
+        "MODULO_SERVICIO_HEADER": "Service",
+        "MODULO_SERVICIO": {
+            "REQUEST_SERVICE": "Solicitar servicio",
+            "VIEW_SERVICE": "Ver servicio"
+        },
+        "MODAL_SHORTCUT": {
+            "lbl_TituloModal": "Shortcut",
+            "bnt_Cerrar": "Cerrar",
+            "tbl_Caption": "Shortcut list",
+            "TABLE": {
+                "HEAD": {
+                    "SHORTCUT": "Shortcut",
+                    "ACTION": "Action"
+                },
+                "BODY": {
+                    "NEW_TRIP": "Nueva Viaje",
+                    "EDIT_TRIP": "Edit Trip",
+                    "FIND_SCREEN": "Search Screen",
+                    "TYPE_CAR": "Vehicle status detail",
+                    "SEARCH_ID": "Search by Reservation",
+                    "SEARCH_AREA": "Search for Rates between Zones",
+                    "TRACKING": "Service Tour",
+                    "USER_DETAIL": "Disabled User",
+                    "RECORD_SERVICE": "User Service History",
+                    "AUDIT_SERVICE": "Service Audit",
+                    "COPY_SERVICE": "Reserve Copy",
+                    "DETAIL_SERVICE": "Service Datail",
+                    "SAVE_SERVICE": "Save Service",
+                    "MESSAGE_MASSIVE_DRIVER": "Massive Message",
+                    "SAVE_NOTIFY": "Save Reservation and Notify",
+                    "LIST_SERVICE_SERVED": "List of Services Served",
+                    "LIST_SERVICE_REALIZED": "List of Reservations Made",
+                    "SMS_INFORMATION_DRIVER": "Send informational message to the driver",
+                    "DRIVER_DETAILS": "Driver Details",
+                    "LIST_DRIVER_TURN": "List of Drivers on Duty",
+                    "LOCATION_GPS_DESTINATION": "GPS Location With Destinations",
+                    "WITHHOLD_SERVICE": "Hold Reserve",
+                    "LOCATION_GPS_MOBILE": "Mobile GPS Location",
+                    "LIST_MESSAGES": "List of Messages",
+                    "DRIVER_NOTIFY": "Driver Notification",
+                    "LIST_SERVICE_PENDING": "Pending Services List",
+                    "MESSAGE_DRIVER": "Message to the Driver",
+                    "REMOVE_MOBILE": "Remove Mobile",
+                    "SAVE_BASIC_CLIENT": "Save new Client",
+                    "FIND_MONITOREO": "Open Monitoring"
+                }
+            },
+            "MODAL_CONTROLS": {
+                "lbl_TittleEdit": "Edit Trip",
+                "lbl_Edit": "Nro Trip",
+                "btn_Edit": "Edit",
+                "lbl_TittleSearch": "Search Trip",
+                "lbl_TypeSearch": "Type Search",
+                "lbl_CriteriaSearch": "Search Criteria",
+                "cbm_TypeSearch": "-- Select --",
+                "btn_Search": "Search"
+            }
+        },
+        "REPORTS": {
+            "SERVICE_REPORT": "Service Reports"
+        }
+    },
+    "STANDARD_NAMES": {
+        "cmb_TipoBusqueda": "-- Type of Search --",
+        "cmb_EstadoViaje": "-- Travel Status --",
+        "cmb_EstadoConductor": "-- Driver Status --",
+        "cmb_Turno": "-- Turn --",
+        "ngSel_Buscar": "Write your search",
+        "ngSel_TipoBusqueda": "What are you looking for?",
+        "ngSel_SinResultado": "Not Found",
+        "ngSel_Buscando": "You are looking for",
+        "ngSel_Espere": "wait a moment.",
+        "tittle_EstadoViaje": "Travel Status",
+        "tittle_EstadoConductor": "Driver Status",
+        "lbl_MapDirOrigen": "Origin",
+        "lbl_MapDirDestino": "Destination",
+        "tittle_MLibre": "Free",
+        "tittle_MEnServicio": "In service",
+        "tittle_MOcupado": "Occupied",
+        "tittle_MDesconectado": "Disconnected",
+        "plh_HomeAddress": "Enter your address"
+    },
+    "SEARCH_ACCORDION": {
+        "lbl_FechaInicio": "Start Date",
+        "lbl_FechaFin": "End Date",
+        "lbl_Busqueda": "Find",
+        "btn_Buscar": "Search",
+        "plh_TipoBusqueda": "Trip / Mobile / Driver / User / Company",
+        "tittle_Busqueda": "Search",
+        "tittle_Atributtes": "Atributtes",
+        "tittle_PaymentType": "Payment Type",
+        "tittle_TypeServiceGroup": "Travel Type"
+    },
+    "MOVILES_COMPONENT": {
+        "lbl_Conductor": "Driver",
+        "lbl_Movil": "Mobile",
+        "lbl_Hora": "Time",
+        "lbl_Zona": "Zone",
+        "lbl_HoraT": "Time T",
+        "plh_BusquedaMovil": "Search by Mobile"
+    },
+    "CONDUCTOR_MENSAJE_COMPONENT": {
+        "lbl_Conductor": "Driver",
+        "lbl_DateTime": "Date",
+        "lbl_not_DateTime": "No Date",
+        "lbl_Hora": "Time",
+        "lbl_Mensaje": "Message",
+        "lbl_type": "Tipo",
+        "lbl_TituloChat": "Message to the driver",
+        "plh_Mensjae": "Write a message...",
+        "bnt_Cerrar": "Close",
+        "bnt_enviar": "Send",
+        "btn_ReadMessage": "Mark as read (A)",
+        "toast_response_ReadMessage": "The message was marked as read",
+        "toast_response": "Message sent",
+        "plh_Search": "Search",
+        "plh_Search_calendar": "Search",
+        "plh_Input_Message": "Write your message here.",
+        "TYPE_USER": {
+            "OWNER": "You",
+            "CLIENT": "Client",
+            "DRIVER": "Driver",
+            "OPERATOR": "Operator"
+        },
+        "CHAT_TO_CONVERSATION": {
+            "PRIORITY_MESSAGE": {
+                "LOW": "Low",
+                "MIDDLE": "Middle",
+                "HIGH": "High"
+            },
+            "plh_EMPTY_TITLE": "Choose a chat to start",
+            "plh_EMPTY_SUB_TITTLE": "You must select a conversation to be able to view its messages."
+        },
+        "SMS_INFORMATION": {
+            "TITLE": "Send Informative message",
+            "FLAG_SEND_ALL": {
+                "ON": "Send to All",
+                "OFF": "Choose"
+            },
+            "plh_SEL_DRIVER": "Select one or more drivers",
+            "plh_SEL_ZONE": "Select one or more Zones",
+            "plh_DESCRIPTION": "Write your message here.",
+            "btn_SEND": "Send"
+        }
+    },
+    "USER_DISABLED_USER": {
+        "modal_tittle": "User lock",
+        "modal_reason_tittle": "Blocking reasons",
+        "plh_sel_user": "Select a user",
+        "swich_disabled_ivr": "Block in ivr",
+        "btn_disabledUser": "Block",
+        "btn_enableUser": "Activate"
+    },
+    "TAPS_VIAJES_COMPONENT": {
+        "btn_Todos": "All",
+        "btn_Reservas": "Reservations",
+        "btn_Inmediatos": "Inmediate"
+    },
+    "TABLE_VIAJES_COMPONENT": {
+        "txt_ListaServicios": "Travel List",
+        "lbl_NroViaje": "Nro Trip",
+        "lbl_Estado": "State",
+        "lbl_Fecha": "Date",
+        "lbl_Hora": "Hour",
+        "lbl_Min": "Time",
+        "lbl_NroMovil": "Nro Mobile",
+        "lbl_Empresa": "Company",
+        "lbl_Usuario": "User",
+        "lbl_ZonaOrigen": "Origin Area",
+        "lbl_ZonaDestino": "Destination Area",
+        "lbl_Tarifa": "Price",
+        "lbl_Atributte": "Atributte",
+        "lbl_ServiceType": "Service Type",
+        "lbl_PaymentType": "Payment Type"
+    },
+    "SOLICITAR_SERVICIO_COMPONENT": {
+        "lbl_cancel_Service":"Cancel Service",
+        "lbl_personal_tercero":"Search Personal",
+        "lbl_Usuario": "User",
+        "lbl_Empresa": "Compay",
+        "lbl_cellPhone": "cellPhone",
+        "lbl_cellPhoneCall": "CellPhone Call",
+        "plh_CellPhoneAutocomplete": "Write number",
+        "lbl_CentroCosto": "Cost Center",
+        "lbl_Fecha": "Date",
+        "lbl_Cobertura": "Coverage",
+        "lbl_TipoRecibo": "Voucher type",
+        "lbl_ModoReserva": "Reserve Mode",
+        "lbl_TarifaPlana": "Flat Tariff",
+        "lbl_Exigente": "Demanding",
+        "lbl_ClienteVip": "Client VIP",
+        "lbl_AireAcondicionado": "Air Acond.",
+        "lbl_Maletera": "Wide Trunk",
+        "lbl_SinDestino": "No Destination",
+        "lbl_CantidadAutos": "Number of Cars",
+        "lbl_Origen": "Origin",
+        "lbl_OReferencia": "Reference",
+        "lbl_PsjDefault": "Passenger",
+        "lbl_Psj_Add_Visit": "Visit",
+        "lbl_Psj_Add_Empresa": "Company",
+        "lbl_PsjOrigen": "Origin Passenger",
+        "lbl_DirDestino": "Destination",
+        "lbl_DReferencia": "Reference",
+        "lbl_PsjDestino": "Destination Passenger",
+        "lbl_PsjBajada": "Passenguer Descent",
+        "lbl_MasDetalle": "More details",
+        "lbl_MenosDetalle": "Less details",
+        "lbl_Total": "Total",
+        "lbl_TiempoEspera": "Standby time",
+        "lbl_CostoEspera": "Expected cost",
+        "lbl_Km": "Km.",
+        "lbl_Tarifa": "Tariff",
+        "lbl_Asignacion": "Assignment",
+        "lbl_Leido": "Read",
+        "lbl_Contacto": "Contact",
+        "lbl_Inicio": "Start",
+        "lbl_Termino": "Finished",
+        "lbl_AñadirDestinos": "Añadir destinos adicionales",
+        "lbl_MasDestino": "+ Destination",
+        "lbl_TipoServicio": "Type Service",
+        "lbl_TipoPago": "Type Pago",
+        "lbl_ObsServicio": "Driver note",
+        "lbl_ObsInterna": "Center note",
+        "lbl_ObsCliente": "Observation Client",
+        "lbl_Desplazamiento": "Displaz",
+        "lbl_Carga": "Cargin",
+        "lbl_Courrier": "Courri",
+        "lbl_Desvio": "Desv",
+        "lbl_AireAcond": "Air Acon.",
+        "lbl_Peaje": "Peaj",
+        "lbl_Parqueo": "Parking",
+        "lbl_Espera": "Esper",
+        "lbl_Otros": "Others",
+        "lbl_CarSeat": "CarSeat",
+        "lbl_Descuento": "Desct",
+        "lbl_Destino": "Destination",
+        "lbl_ServicioRutina": "Service Rutin",
+        "lbl_ServicioRetorno": "Service Retor",
+        "lbl_Detainet": "Detainet",
+        "lbl_Attributes": "Attributes",
+        "btn_Desplazamiento": "Displacement",
+        "btn_Cancelar": "Cancel",
+        "btn_RetirarCoductor": "Remove driver",
+        "btn_RetirarCancelar": "Withdraw Cancellation",
+        "btn_Anular": "Anul",
+        "btn_RetirarAnular": "Anul Withdraw",
+        "btn_Ofertar": "Tender",
+        "btn_GuardarNotificar": "Save and Not.",
+        "btn_Retener": "Retain",
+        "btn_Free": "Release",
+        "btn_Guardar": "Save",
+        "btn_GuardarRetener": "Hold and Save",
+        "btn_EnviarRetener": "Hold and Save",
+        "btn_Enviar": "Save",
+        "btn_Editar": "Edit",
+        "btn_Solicitar": "Pedir Servicio",
+        "btn_Reservar": "Reservar Servicio",
+        "btn_asignarMovil": "Assign car",
+        "btn_VerTracking": "Tracking",
+        "btn_Duplicate": "Duplicate",
+        "btn_DymanicFields": "Dynamic fields",
+        "cmb_CentroCosto": "-- Cost Center --",
+        "cmb_Cobertura": "-- Add Coverage--",
+        "cmb_TipoRecibo": "-- Add Voucher Type--",
+        "cmb_TipoServicio": "-- Type Service --",
+        "cmb_dynamic_fied": "-- Select a dynamic field --",
+        "cmb_cost_center" : "-- Select a cost center --",
+        "cmb_TipoPAgo": "-- Type Payment --",
+        "cmb_PedirOtro": "request for other staff",
+        "plh_FechaServicio": "Date Service",
+        "plh_OReferencia": "Origin Reference",
+        "plh_DReferencia": "Destination Reference",
+        "plh_Default": "Writing...",
+        "plh_Usuario": "Write name/email/number User",
+        "plh_Empresa": "Whire company",
+        "plh_CentroCosto": "Write cost cemter",
+        "plh_DirOrigen": "Write origin",
+        "plh_DirDestino": "Write destination",
+        "plh_PBajada": "Select a return passenger",
+        "plh_PNombre": "Name",
+        "plh_PApPaterno": "Last Name Pat.",
+        "plh_PApMaterno": "Last Name Mat.",
+        "plh_PTelefono": "cellPhone",
+        "plh_PCountryCode": "Code",
+        "plh_Total": "Total",
+        "plh_FAsignacion": "Assignment Date",
+        "plh_FLeido": "Date Read",
+        "plh_FContacto": "Contact Date",
+        "plh_FInicio": "Start Date",
+        "plh_FFin": "End Date",
+        "tittle_FechaServicio": "Date Service",
+        "tittle_AgregaPasajero_Visita": "Add Visit Passenguer",
+        "tittle_AgregaPasajero_Empresa": "Add Company Passenguer",
+        "title_QuitarPasajero": "Remove Passenguer",
+        "title_FAsignacion": "Assignment Date",
+        "title_FLeido": "Date Read",
+        "title_FContacto": "Contact Date",
+        "title_FInicio": "Start Date",
+        "title_FFin": "End Date",
+        "SPAN_PRECIO_A_TRATAR": "Price to treat",
+        "SPAN_CC_PARTICULAR": "CC DEFAULT",
+        "messagge_success": "The service has been created successfully ",
+        "label_see_service":"See service",
+        "DROP_DOWN_ATTRIBUTES": {
+            "title": "Add Attributes",
+            "lbl_Attributes": "Attributes",
+            "plh_Atributes": "Select item"
+        },
+        "DROP_DOWN_CLIENT": {
+            "title": "Add Client",
+            "lbl_CellPhone": "CellPhone",
+            "lbl_FullName": "Full Name",
+            "lbl_EmailPassword": "E-mail and Password",
+            "lbl_EmailValid": "Please enter your valid email address.",
+            "plh_CellPhone": "CellPhone",
+            "plh_FirstName": "Name",
+            "plh_FirstLastName": "First Last Name",
+            "plh_SecondLastName": "Second Last Name",
+            "plh_Email": "E-mail",
+            "plh_Password": "Password"
+        },
+        "DYNAMIC_FIELDS": {
+            "lbl_Title": "Dynamic Fields",
+            "btn_Send": "Send",
+            "cmb_Select": "-- Select --",
+            "plh_Answer": "Enter answer"
+        },
+        "CARGA": {
+            "lbl_description_carga": "Description of cargo",
+            "lbl_carga_charger": "Charger",
+            "lbl_carga_origin_floor": "Origin Floor",
+            "lbl_carga_destination_floor": "Destination Floor"
+        }
+    },
+    "DETALLE_VIAJE_COMPONENT": {
+        "lbl_DirOrigen": "Origin:",
+        "lbl_DirDestino": "Destination",
+        "lbl_Pasajero": "Passenger"
+    },
+    "INFORMACION_CONDUCTOR_COMPONENT": {
+        "lbl_ConductorMovil": "Driver and Mobile Information",
+        "lbl_Conductor": "Driver:",
+        "lbl_Nombre": "Name:",
+        "lbl_Telefono": "cellPhone:",
+        "lbl_Movil": "Mobile:",
+        "lbl_Placa": "License plate:",
+        "lbl_Marca": "Mark:",
+        "lbl_Modelo": "Model:",
+        "lbl_Color": "Colorin:"
+    },
+    "INFORMACION_CLIENTE_COMPONENT": {
+        "lbl_InfoCliente": "Customer Information",
+        "lbl_Correo": "E-mail:",
+        "lbl_CCosto": "Cost Center:",
+        "lbl_Cargo": "Position:"
+    },
+    "INFORMACION_MAPA": {
+        "tittle_Origen": "Origin",
+        "tittle_Destino": "Destination"
+    },
+    "IMPUT_GEO": {
+        "lbl_eliminarFavorito": "Delete favorite",
+        "lbl_agregarFavorito": "Add Favorite"
+    },
+    "TOAST_MENSAJES": {
+        "msj_OcurrioUnProblema": "Ocurrio un problema, por favor intente nuevamente.",
+        "msj_AgregarServicio": "Add service ",
+        "msj_NoEncontroCliente": "You have not selected a customer for the service.",
+        "msj_NoEncontroEmpresa": "User's company is invalid",
+        "msj_NoEncontroCCosto": "Please select a Cost Center.",
+        "msj_NoHabitadoCCosto": "The selected Cost Center is not enabled",
+        "msj_NoEncontroFecha": "You have not entered a date for the trip yet",
+        "msj_NoEncontroHora": "You have not entered an hour for the trip yet",
+        "msj_NoEncontroCobertura": "You must select the travel coverage",
+        "msj_NoEncontroCanAutos": "You have not yet entered the number of mobiles for the trip",
+        "msj_NoEncontroOrigen": "The point of origin has not yet been entered",
+        "msj_NoEncontroDestino": "The destination point has not yet been entered",
+        "msj_NoEncontroTServicio": "You have not yet selected a trip type",
+        "msj_NoEncontroTPago": "You have not yet selected a payment type",
+        "msj_NoEncontroRutina": "msj_NoEncontroRutina",
+        "msj_NoEncontroRetorno": "msj_NoEncontroRetorno",
+        "msj_NoEncontroPTelefono": "They have not yet entered the phone number of all the passengers",
+        "msj_SinCobertura": "There is no coverage at the selected point",
+        "msj_warning_ExcesoPasajerosAsiento": "The passengers that entered are greater than the number of spaces",
+        "msj_info_SinCobertura": "En estos momentos no tenemos covertura en esa zona",
+        "msj_fullScreenOnlyMarkers": "To access the full screen it is necessary to select at least one driver",
+        "msj_AgregarFavorito": "Your address has been added as a favorite",
+        "msj_EliminarFavorito": "Your address has been removed from favorites",
+        "msj_OfferSuccess": "It was successfully offered",
+        "msj_CancelSuccess": "It was successfully assing",
+        "msj_SMSInformative": "The message was sent successfully",
+        "msj_UnAssingSuccess": "The driver was removed successfully",
+        "msj_AssingSuccess": "It was assigned successfully",
+        "msj_SinRazonesDeCancelacion": "Unfortunately the service cannot be canceled, there are no reasons for cancellation.",
+        "msj_SinRazonesDeBloqueo": "Unfortunately the service cannot be canceled, there are no reasons for blocked.",
+        "msj_ClientSaveSuccessful": "Successful registration.",
+        "msj_ClientCompleteInformation": "You must complete the information.",
+        "msj_DontPermission": "You don't have permission to perform this action.",
+        "msj_NoConversation": "No conversations found.",
+        "msj_SuccessfulValidation": "Successful Validation.",
+        "msj_ValidCode": "Valid Code.",
+        "msj_InvalidCode": "Enter Code",
+        "msj_SelectClient": "Select a corporate client.",
+        "msj_DetainedTrip": "Detained Trip",
+        "msj_LiberatedTrip": "Liberated Trip",
+        "msj_ClientBlocked": "Client blocked.",
+        "msj_ClientUnlocked": "Client unlocked."
+    },
+    "ERROR_SERVICE": {
+        "CLIENT": {
+            "3001": "The client is disabled.",
+            "3002": "The client does not exist.",
+            "3003": "You are sending the id field empty."
+        },
+        "CURRENT_STATE": {
+            "8001": "You must enter a type of driver status."
+        },
+        "DOCUMENT_TIPE": {
+            "1001": "Document type is not valid, please try again.",
+            "1002": "The document cannot be blank.",
+            "1003": "You should only enter numeric data."
+        },
+        "DRIVER": {
+            "2001": "The driver was disabled.",
+            "2002": "The driver does not exist.",
+            "2003": "Must be in APPROVED status.",
+            "2004": "The driver is disabled.",
+            "2005": "You must enter a driver identifier.",
+            "2006": "You must enter a vehicle identifier.",
+            "2007": "No code entered.",
+            "2008": "The activation code is not valid.",
+            "2009": "The driver is already active with another vehicle."
+        },
+        "PANEL": {
+            "7001": "Value sent in the shift is not valid.",
+            "7002": "Value sent in status type is not valid."
+        },
+        "SERVICE": {
+            "9001": "The trip does not exist.",
+            "9002": "The UUID field must not be empty.",
+            "9003": "The UUID field must not be empty.",
+            "9004": "We could not find the specified trip.",
+            "9005": "The Customer field must not be empty.",
+            "9006": "The company field must not be empty.",
+            "9007": "The trip type field must not be empty.",
+            "9008": "The state type field must not be empty.",
+            "9009": "The payment type field must not be empty.",
+            "9010": "The source field must not be empty.",
+            "9011": "The origin address field must not be empty.",
+            "9012": "The destination address field must not be empty.",
+            "9013": "The destination field must not be empty.",
+            "9014": "The receipt_number field must not be empty.",
+            "9015": "The fixed_rate field must not be empty.",
+            "9016": "The reservation mode field must not be empty.",
+            "9017": "The distance field must not be empty.",
+            "9018": "The origin_latitude field must not be empty.",
+            "9019": "The origin_longitude field must not be empty.",
+            "9020": "The vip field must not be empty.",
+            "9021": "The demanding field must not be empty.",
+            "9022": "The currencytype field must not be empty.",
+            "9023": "You cannot cancel the trip, because it has already started",
+            "9024": "The trip cannot be canceled",
+            "9025": "The trip does not have an assigned driver",
+            "9026": "The trip is not approved",
+            "9027": "The trip is not assigned to this driver",
+            "9028": "The status of the trip is not within the allowed values ​​(4,5,6,7)",
+            "9029": "The trip is not yet in pre-closing",
+            "9030": "The trip is canceled"
+        },
+        "SMS": {
+            "4001": "The entered code is invalid or does not exist.",
+            "4002": "The user is not a customer.",
+            "4003": "The code has already been used.",
+            "4004": "Error updating used field.",
+            "4005": "The message code has expired.",
+            "4006": "The code is not the one sent.",
+            "4007": "Your user is not enabled, if you have any questions consult support."
+        },
+        "USER": {
+            "5001": "The user does not exist.",
+            "5002": "The password is not correct, please enter it again.",
+            "5003": "The user is disabled.",
+            "5004": "User mail already exists.",
+            "5005": "The password must not be less than% v.",
+            "5006": "The password is blank.",
+            "5007": "The password is very weak, try adding uppercase letters, lowercase letters and symbols.",
+            "5008": "The email is blank.",
+            "5009": "The name is blank.",
+            "5010": "The last name is blank.",
+            "5011": "The Country code is blank.",
+            "5012": "The phone field is blank.",
+            "5013": "You should only enter numeric data.",
+            "5014": "The uuid code is blank.",
+            "5015": "The code is blank.",
+            "5016": "You must enter a facebook account.",
+            "5017": "You must enter a google account.",
+            "5018": "The paternal last name is blank.",
+            "5019": "The maternal surname is blank.",
+            "5020": "The facebook account entered already exists.",
+            "5021": "The google account entered already exists.",
+            "5022": "The mobile phone entered already exists.",
+            "5023": "The facebook field must not be blank.",
+            "5024": "Username must not be blank."
+        },
+        "VEHICULO": {
+            "6001": "The vehicle was disabled.",
+            "6002": "The vehicle does not exist.",
+            "6003": "The vehicle is not associated with the driver.",
+            "6004": "The vehicle is being used."
+        },
+        "ZONE": {
+            "11001": "There is no coverage for the area.",
+            "11002": "You must enter a Latitude.",
+            "11003": "You must enter a Longitude.",
+            "11004": "Invalid coordinate.",
+            "11005": "No coordinates found."
+        },
+        "FAVORITE_ADDRESS": {
+            "12001": "You must enter an id of the favorite address.",
+            "12002": "The clientId field must not be empty.",
+            "12003": "The companyClientId field must not be empty.",
+            "12004": "The mainText field must not be empty."
+        },
+        "DATA_CONFIGURATION": {
+            "13001": "The reason identifier does not exist.",
+            "13002": "The reason is disabled.",
+            "13003": "The option sent is not correct.",
+            "13004": "The submitted option is disabled."
+        },
+        "SERVICE_RATING": {
+            "14001": "The sent rating is out of range (1,2,3,4,5).",
+            "14002": "The service is already qualified."
+        },
+        "OFFER": {
+            "15001": "We do not have a fee at those points.",
+            "15002": "The reference of the offer does not exist."
+        },
+        "CLIENT_COMPANY": {
+            "16001": "The company is not related to the customer."
+        },
+        "PAYMENT_TYPE": {
+            "17001": "There is no payment type.",
+            "17002": "The payment type is disabled."
+        },
+        "DESTINATION": {
+            "18001": "The entered destination does not exist.",
+            "18002": "The sent service could not be found at the destination."
+        }
+    },
+    "MI_EMPRESA": {
+        "DATOS_GENERALES": {
+            "lbl_Titulo": "GENERAL DATA",
+            "lbl_NombreComercial": "Tradename",
+            "lbl_RazonSocial": "Business Name",
+            "lbl_Direccion": "Direction",
+            "lbl_CodPais": "Country Code",
+            "lbl_Distrito": "District",
+            "lbl_Logo": "Logo",
+            "lbl_Descripcion": "Select an image with a resolution greater than 500px by 400px.",
+            "cmb_CodPais": "--Select--",
+            "cmb_Distrito": "--Select District--",
+            "btn_Logo": "Select Image",
+            "btn_Guardar": "Save"
+        },
+        "COLOR_CONFIGURACION": {
+            "lbl_Titulo": "COLOR SETTINGS",
+            "lbl_EstadoViaje": "Travel States",
+            "lbl_EstadoConductor": "Driver States",
+            "btnGuardar": "Save"
+        }
+    },
+    "MODULO_MONITOREO": {
+        "BUSQUEDA": {
+            "plh_movilConductor": "Search for mobile, driver Code, name, plate",
+            "cmb_StatuaDriver": "-- Driver Status --",
+            "cmb_StatuaTravel": "-- Travel Status --",
+            "cmb_TypePayment": "-- Payment type --",
+            "cmb_TypeService": "-- Service Type --"
+        },
+        "TAPS_MONITOREO": {
+            "btn_30": "30'",
+            "btn_45": "45'",
+            "btn_60": "60'",
+            "lbl_x": "No choice",
+            "lbl_30": "30 minutes",
+            "lbl_45": "45 minutes",
+            "lbl_60": "60 minutes"
+        },
+        "TABLE_CONDUCTOR": {
+            "lbl_conductor": "Driver",
+            "lbl_vehiculo": "Vehicle",
+            "lbl_tiempo": "Time",
+            "lbl_estado_Conductor": "S. Driver",
+            "lbl_estado_Viaje": "S. Travel"
+        }
+    },
+    "MODAL_MOVILES_POR_TIPO": {
+        "lbl_TituloModal": "Lista de moviles",
+        "bnt_Cerrar": "Close",
+        "tbl_Caption": "Moviles x Vehiculo"
+    },
+    "MY_PROFILE": {
+        "lbl_Tittle": "MY PROFILE",
+        "lbl_ChangePhoto": "Change Photo",
+        "CHANGE_PASSWORD": {
+            "lbl_Header": "LOGIN",
+            "lbl_Subtittle": "Change Password",
+            "lbl_Recommendation": "It is recommended to use a strong password that you do not use anywhere else.",
+            "lbl_CurrentPassword": "Current",
+            "lbl_NewPassword": "New",
+            "lbl_ConfirmPassword": "Confirm Password",
+            "lbl_MatchPassword": "Passwords must match.",
+            "lbl_ForgorPassword": "Did you forget your password?",
+            "btn_Edit": "Edit",
+            "btn_Close": "Close",
+            "btn_SaveChange": "Save Changes",
+            "msj_saveProfile": "Successful registration",
+            "msj_ChangePassword": "Updated password.",
+            "msj_Name": "Enter name.",
+            "msj_FirstLastName": "Enter First Last Name",
+            "msj_Email": "Enter E-mail",
+            "msj_Gender": "Select gender.",
+            "msj_Uuid": "uuid empty."
+        },
+        "PERSONAL_INFORMATION": {
+            "lbl_Header": "PERSONAL INFORMATION",
+            "lbl_Name": "Name",
+            "lbl_FirstLastName": "First Surname",
+            "lbl_SecondLastName": "Second Surname",
+            "lbl_Email": "E-mail",
+            "lbl_Gender": "Gender",
+            "cbm_Gender": "--Select--",
+            "btn_Save": "Save"
+        },
+        "MODAL_SEND_EMAIL": {
+            "lbl_Tittle": "Recover Password",
+            "lbl_Information": "We will send you an email with your password.",
+            "lbl_RequiredEmail": "Email is required.",
+            "plh_Email": "Email",
+            "btn_Send": "Send"
+        }
+    },
+    "MODAL_CANCEL_SERVICE": {
+        "lbl_TituloModal": "Trip cancellation No. ",
+        "lbl_chooseOption": "Select a reason:",
+        "plh_ImputMotivo": "Tell us your reason.",
+        "btn_Cancelar": "Cancel Trip"
+    },
+    "MODAL_RETIRAR_CONDUCTOR": {
+        "lbl_TituloModal": "Remove Driver of trip No. ",
+        "lbl_chooseOption": "Select a reason:",
+        "plh_ImputMotivo": "Tell us your reason.",
+        "btn_Cancelar": "Remove Driver Trip",
+        "btn_RetirarCoductor": "Remove driver"
+    },
+    "MODAL_ASSING_CAR": {
+        "lbl_TITULO_MODAL": "Trip No. ",
+        "btn_SAVE": "Assign Mobile ",
+        "plh_Code": "Code",
+        "DETAILS": {
+            "lbl_CODE": "Code",
+            "lbl_BACK": "Return",
+            "lbl_SEAT": "Seat",
+            "lbl_SEAT_PLURALS": "Seats",
+            "lbl_CODE_DRIVER": "Conductor Code",
+            "lbl_NAME_DRIVER": "The driver of the mobile is in charge of",
+            "lbl_OWNER_VEHICLE": "The driver is the owner of the mobile.",
+            "lbl_I_OWNER_VEHICLE": "The owner of the mobile is"
+        }
+    },
+    "PIPE": {
+        "DATE_AGO": {
+            "JUST_NOW": "just now",
+            "AGO": "ago",
+            "SINGULAR": {
+                "YEAR": "year",
+                "MONTH": "month",
+                "WEEK": "week",
+                "DAY": "day",
+                "HOUR": "hour",
+                "MINUTE": "minute",
+                "SECOND": "second"
+            },
+            "PLURAL": {
+                "YEAR": "year's",
+                "MONTH": "month's",
+                "WEEK": "week's",
+                "DAY": "day's",
+                "HOUR": "hour's",
+                "MINUTE": "minute's",
+                "SECOND": "second's"
+            }
+        },
+        "MILISECOND_TIME": {
+            "JUST_NOW": "just now",
+            "AGO": "ago",
+            "A_MINUTES": "",
+            "ABBREVIATION": {
+                "YEAR": "year",
+                "MONTH": "mon",
+                "WEEK": "week",
+                "DAY": "day",
+                "HOUR": "hour",
+                "MINUTE": "min",
+                "SECOND": "sec"
+            },
+            "SINGULAR": {
+                "YEAR": "year",
+                "MONTH": "month",
+                "WEEK": "week",
+                "DAY": "day",
+                "HOUR": "hour",
+                "MINUTE": "min",
+                "SECOND": "second"
+            },
+            "PLURAL": {
+                "YEAR": "year's",
+                "MONTH": "month's",
+                "WEEK": "week's",
+                "DAY": "day's",
+                "HOUR": "hour's",
+                "MINUTE": "minute's",
+                "SECOND": "second's"
+            }
+        },
+        "TRANSLATE_CODE": {
+            "CURRENCY_TYPES": {
+                "1": "Nuevo sol",
+                "2": "Dollar"
+            },
+            "DOCUMENT_TYPES": {
+                "1": "DNI",
+                "2": "FOREIGN CARD",
+                "3": "PASSPORT",
+                "4": "PTP"
+            },
+            "GENDERS": {
+                "9": "Male",
+                "10": "Female",
+                "11": "I'd rather not say"
+            },
+            "MODE_RESERVE": {
+                "1": "BACKOFFICE",
+                "2": "APP",
+                "3": "TEST",
+                "4": "WEB",
+                "5": "BASE"
+            },
+            "PAYMENT_TYPES": {
+                "100": "Cash",
+                "101": "Card"
+            },
+            "SERVICE_TYPES": {
+                "1": "Elite",
+                "2": "Courier",
+                "3": "Van",
+                "4": "Standar",
+                "5": "Carga",
+                "6": "Elite",
+                "7": "Standar",
+                "8": "Courier"
+            },
+            "STATUS_TYPES_DRIVER": {
+                "15": "DISCONNECTED",
+                "16": "FREE",
+                "17": "BUSY",
+                "18": "NO GPS",
+                "19": "SUSPENDED",
+                "20": "LOCKED",
+                "21": "CLOSED",
+                "22": "SERVICE"
+            },
+            "STATUS_TYPES_SERVICE": {
+                "1": "Approved",
+                "2": "ASSIGNED",
+                "3": "READ",
+                "4": "LOCATED",
+                "5": "CONTACT",
+                "6": "HOME",
+                "7": "DESTINATION ARRIVED",
+                "8": "END",
+                "9": "CANCELED USER",
+                "10": "CANCELED DRIVER",
+                "11": "CANCELED BASE",
+                "12": "BYPASSED BASE",
+                "13": "PRE-ASSIGNED",
+                "14": "OFFSET",
+                "23": "Not Approved",
+                "24": "Pending approval",
+                "25": "Looking for a vehicle",
+                "26": "Searching vehicle schedule",
+                "27": "Rejected",
+                "28": "User search canceled",
+                "29": "Pre closing",
+                "30": "Retired driver",
+                "31": "No attention"
+            },
+            "STATUS_TYPE_DRIVER": {
+                "APPROVED": "APPROVED",
+                "SUSPEND": "SUSPEND",
+                "SUSPEND_TIME": "SUSPEND TIME",
+                "BLOCKED": "BLOCKED",
+                "CLOSED": "CLOSED"
+            },
+            "STATUS_TYPE_SERVICE_GROUP": {
+                "1": "Pending",
+                "2": "Assigned",
+                "3": "Board",
+                "4": "CANCEL",
+                "5": "Others",
+                "6": "Finished"
+            },
+            "TURNS": {
+                "1": "Shift tomorrow",
+                "2": "Late shift",
+                "3": "Night shift"
+            },
+            "TYPE_RECEIPTS": {
+                "1": "Ballot",
+                "2": "Invoice"
+            },
+            "TYPE_ZONE": {
+                "1": "Generic",
+                "2": "Dangerous"
+            },
+            "VEHICLE_TYPES": {
+                "1": "Van",
+                "2": "Sedan",
+                "3": "Moto"
+            },
+            "CATEGORY_TYPE": {
+                "1": "Main",
+                "2": "Test"
+            },
+            "ATRIBUTTES_VEHICLE": {
+                "28": "Air conditioning"
+            },
+            "DOCUMENT_STATUS": {
+                "DOCUMENT_RESULT_APPROVED": "Approved",
+                "DOCUMENT_RESULT_REJECTED_DOCUMENT_REJECTED": "Rejected",
+                "DOCUMENT_RESULT_IN_REVIEW_PENDING": "Pending",
+                "DOCUMENT_RESULT_IN_REVIEW_REQUEST_RENIEC": "Consulting"
+            },
+            "DOCUMENT_STATUS_COMMENT": {
+                "DOCUMENT_RESULT_APPROVED": "Approved documentation",
+                "DOCUMENT_RESULT_REJECTED": "Documentation rejected",
+                "DOCUMENT_RESULT_IN_REVIEW": "Pending review",
+                "DOCUMENT_RESULT_START": "Ready to start"
+            },
+            "DRIVER_DOCUMENTS": {
+                "4": "Driver's license",
+                "5": "Profile picture",
+                "6": "DNI",
+                "7": "Criminal records"
+            },
+            "VEHICLE_DOCUMENTS": {
+                "1": "SAT",
+                "2": "Technical review",
+                "3": "Setame",
+                "8": "SOAT",
+                "9": "Property card"
+            },
+            "TEMPLATE_PERMISSION": {
+                "PERSONALIZED": "Personalized",
+                "GENERAL_DISPTACH": "General Distpach",
+                "GENERAL_MAINTAINER": "General Maintainer",
+                "OPERATORS": "Operator"
+            },
+            "TEMPLATE_PERMISSION_SCREEN": {
+                "SHORT_CUT": "SHORT_CUT",
+                "PROFILE": "PROFILE",
+                "OPERATION": "OPERATION",
+                "MONITORING": "MONITORING",
+                "MAINTAINER_DRIVER ": "MAINTAINER_DRIVER",
+                "MAINTAINER_VEHICLE": "MAINTAINER_VEHICLE",
+                "MODAL_TRAVEL": "MODAL_TRAVEL",
+                "MAINTAINER_MESSAGE": "MAINTAINER_MESSAGE",
+                "MAINTAINER_PERMISSION": "PERMISSION",
+                "MODAL_DRIVER_DETAILS": "MODAL_DRIVER_DETAILS",
+                "MODAL_MESSAGE": "MODAL_MESSAGE",
+                "MODAL_DRIVER_STATUS": "MODAL_DRIVER_STATUS",
+                "MODAL_VALIDATE_BALANCE": "MODAL_VALIDATE_BALANCE",
+                "MODAL_EXIT_CONFIRMATION": "MODAL_EXIT_CONFIRMATION"
+            },
+            "TEMPLATE_PERMISSION_SCREEN_CHILDREN": {
+                "FIND_RESERVE": "FIND_RESERVE",
+                "LST_MOVILE": "LST_MOVILE",
+                "TABLE_TRAVEL": "TABLE_TRAVEL",
+                "SEARCH_TABLE_DRIVER": "SEARCH_TABLE_DRIVER",
+                "TABLE_DRIVER": "TABLE_DRIVER",
+                "DESTINATION": "DESTINATION",
+                "EXIT_CONFIRMATION": "EXIT_CONFIRMATION",
+                "DRIVER_DETAILS": "DRIVER_DETAILS",
+                "LST_TRAVELS": "LST_TRAVELS",
+                "TRACKING_DRIVER": "TRACKING_DRIVER",
+                "DATA_LOG": "DATA_LOG",
+                "DRIVER_STATUS": "DRIVER_STATUS"
+            },
+            "MODALITY_NAME": {
+                "1": "I want to travel and I have a car",
+                "2": "I want someone else to drive my car",
+                "3": "I want to take trips with someone else's car"
+            },
+            "MODALITY_DESCRIPTION": {
+                "1": "I am 21 years of age or older with a 2008 or later 4-door car.",
+                "2": "I am over 21 years old and have a 2008 or later 4 door car and am looking for someone to drive for me.",
+                "3": "I am over 21 years old and I am looking for a car to take trips."
+            },
+            "DYNAMIC_FIELDS": {
+                "4": "",
+                "5": "",
+                "6": ""
+            },
+            "TYPE_CONTROL": {
+                "58": "Open",
+                "59": "Close"
+            }
+        }
+    },
+    "MODAL_TRACKING": {
+        "lbl_Tittle": "Tracking Trip N° ",
+        "tittle_Start": "Start",
+        "tittle_PreClose": "Pre Close",
+        "tittle_Close": "Close",
+        "tittle_CheckPoint": "CheckPoint",
+        "tittle_Reading": "Reading",
+        "tittle_Contact": "Contact",
+        "tittle_StartDestination": "Start Destination",
+        "tittle_EndDestination": "End Destination",
+        "tittle_End": "End",
+        "lbl_velocidad": "S: ",
+        "lbl_fecha": "Date: "
+    },
+    "DRAG_DROP_FILE": {
+        "lbl_upFile": "Drop your photos to be uploaded",
+        "lbl_or": "o",
+        "btn_findDocument": "Search your documents",
+        "lbl_maxUpload": "Maximum Documents"
+    },
+    "DRIVER_MAINTENANCE": {
+        "lbl_Tittle": "DRIVER",
+        "lbl_Driver": "Driver",
+        "lbl_Movil": "Vehicle",
+        "lbl_AdmisionDate": "Adm. Date",
+        "lbl_DateOfUnemployment": "Date of Unemployment",
+        "lbl_Turn": "Turn",
+        "btn_SaveDrive": "Save",
+        "btn_NextStep": "Next",
+        "INFORMATION": {
+            "lbl_FullName": "Full Name",
+            "lbl_Direction": "Address",
+            "lbl_FirstName": "Name",
+            "lbl_FirstLastName": "First Surname",
+            "lbl_SecondLastName": "Second Surname",
+            "lbl_Reference": "Reference",
+            "lbl_DocumentType": "Document Type",
+            "lbl_DocumentNumber": "N° Document",
+            "lbl_BirthDay": "Brithday",
+            "lbl_ExpDocument": "Expiration Document",
+            "lbl_InformationP": "Personal Information",
+            "lbl_Children": "N° Sons",
+            "lbl_Phone": "Phone",
+            "lbl_TelephoneHome": "Telephone Home",
+            "lbl_Cellphone": "Cellphone",
+            "cmb_DocumentType": "--Select Document Type--",
+            "cmb_Gender": "--Select Gender--",
+            "cmb_CivilStatus": "--Select Civil Status--"
+        },
+        "PAYMENT": {
+            "lbl_Payment": "Payment",
+            "lbl_PaymentAccount": "Payment Account",
+            "lbl_AccountNumber": "N° Account",
+            "lbl_HolderNames": "Holder Names",
+            "lbl_SurnameOfHolder": "Surname of the Holder",
+            "lbl_DocumentNumber": "N° Document",
+            "lbl_Puntuaction": "Puntuaction",
+            "lbl_Balance": "Balance",
+            "cmb_Day": "--Select Day--",
+            "cmb_Period": "--Select Period--",
+            "cmb_Bank": "--Select Bank--",
+            "cmb_AccountType": "--Select Account Type--",
+            "cmb_DocumentType": "--Select Document Type--"
+        },
+        "ACTIVATION": {
+            "lbl_Imei": "IMEI",
+            "lbl_UserPassword": "Password",
+            "lbl_Email": "E-mail",
+            "lbl_ActivationCode": "Activation Code",
+            "plh_User": "User",
+            "plh_Email": "E-mail",
+            "btn_ChangePassword": "Change Password",
+            "btn_Generate": "Generate"
+        },
+        "WORKING_MODE": {
+            "lbl_Driver": "Code",
+            "lbl_Vehicle": "Vehicle",
+            "lbl_Turn": "Turn",
+            "lbl_Modality": "Modality",
+            "lbl_PaymentType": "Payment Type",
+            "lbl_AdmisionDate": "Admision Date",
+            "lbl_DateOfUnemployment": "Date Of Unemployment",
+            "lbl_Coverage": "Coverage",
+            "lbl_BusinessGroup": "Business Group",
+            "lbl_TripCommission": "Commission per Trip",
+            "lbl_Observation": "Observation",
+            "plh_Driver": "Code",
+            "plh_Vehicle": "Select Vehicle",
+            "plh_PaymentTyoe": "Select Payment Type",
+            "plh_AdmisionDate": "Admision Date",
+            "plh_DateOfUnemployment": "Date Of Unemployment",
+            "plh_Commission": "Commission",
+            "plh_Observation": "Type here...",
+            "cbm_Turn": "--Select Turn--",
+            "cbm_Modality": "--Select Modality--",
+            "cbm_Coverage": "--Select Coverage--",
+            "cbm_BusinessGroup": "--Select Business Group--",
+            "btn_AddVehicle": "Add Vehicle"
+        },
+        "LABLE_TITLE": "Driver Maintainer",
+        "lbl_InfoConductor": "Driver",
+        "TITLE": {
+            "LIST": "List of vehicles",
+            "ADD": "Add new vehicle",
+            "EDIT": "Vehicle Edition"
+        },
+        "DOCUMENTS": {
+            "TITLE_ADD_DOCUMENT": "Add document",
+            "lbl_ViewDocument": "View document",
+            "TABLE": {
+                "HEAD": {
+                    "TYPE": "Document Type",
+                    "DATE": "Expiration date",
+                    "DEADLINE": "Deadline",
+                    "STATE": "State",
+                    "EDIT": "Edit",
+                    "VIEW": "View"
+                },
+                "TITLE_VIEW_DOCUMENT": "Document name."
+            },
+            "MODAL": {
+                "lbl_typeDocument": "Document Type",
+                "cmo_typeDocument": "-- Select --",
+                "lbl_DocumentNumber": "Document Number",
+                "lbl_expirationDate": "Expiration date",
+                "plh_expirationDate": "Expiration date",
+                "btn_Save": "Save",
+                "btn_Update": "Update"
+            }
+        },
+        "WORK_FORMAT": {
+            "TITLE": {
+                "ADD": "Add Vehicle"
+            }
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "CODE": "Code",
+                "NAME": "Name",
+                "LASTNAME": "Last Name",
+                "EMAIL": "Email",
+                "ENABLE": "Status",
+                "EDIT": "Edit"
+            },
+            "FIND_DRIVER": "Search",
+            "SEARCH_LICENSE_PLATE": "Search by name / surname  /email"
+        },
+        "ADD": {
+            "NAV": {
+                "nav_Information": "Information",
+                "nav_Payment": "Payment",
+                "nav_Documents": "Documents",
+                "nav_Attributes": "Attributes",
+                "nav_Activation": "Activation",
+                "nav_WorkingMode": "Work Form",
+                "nav_Configuration": "Configuration"
+            },
+            "ATRIBUTES": {
+                "lbl_ProvideInvoice": "Provide Invoice",
+                "lbl_EmploysPOS": "Employs POS",
+                "lbl_SpeakLanguajes": "Speak Languajes"
+            },
+            "CONFIGURATION": {
+                "lbl_DriverStatus": "Driver Status"
+            }
+        },
+        "TOAST": {
+            "msj_fullName": "Fill the name information.",
+            "msj_direction": "Enter the address.",
+            "msj_documentDriver": "Select a document type.",
+            "msj_documentNumber": "Enter the document number.",
+            "msj_gender": "Select gender.",
+            "msj_telephone": "Enter phone number.",
+            "msj_cellPhone": "Enter cell phone number.",
+            "msj_dapPay": "Select a payday.",
+            "msj_period": "Select period.",
+            "msj_bank": "Select a bank.",
+            "msj_typeAccount": "Select an account type.",
+            "msj_accountNumber": "Enter an account number.",
+            "msj_accountName": "Enter name of account holder.",
+            "msj_AccountLastName": "Enter the last name of the account holder.",
+            "msj_accountDocument": "Select type of holder document.",
+            "msj_accountDocumentNumber": "Enter the holder's document number.",
+            "msj_email": "Enter E-mail.",
+            "msj_password": "You must enter a Password.",
+            "msj_saveOk": "The driver has been created.",
+            "msj_updateOk": "The driver has been modified.",
+            "msj_changePassword": "You must enter the driver's document number.",
+            "msj_saveDocument": "The document was saved successfully.",
+            "msj_SelectDocument": "You must select the document.",
+            "msj_RegisterDriver": "You must register the driver.",
+            "msj_SelectDocumentType": "Select a document type.",
+            "msj_EnterDocumentNumber": "Enter a document number.",
+            "msj_EnterDocumentExpired": "Enter the expiration date.",
+            "msj_UpdateStatusDocument": "Status updated correctly.",
+            "msj_SelectDriverRegistered": "Choose a registered driver.",
+            "msj_AssociatedVehicle": "Associated Vehicle.",
+            "msj_AssociationEliminated": "Vehicle Removed.",
+            "msj_MinuteSuspend": "You must enter the suspension minutes.",
+            "msj_SuspendDriver": "Driver permanently suspended.",
+            "msj_BlockedDriver": "Blocked driver.",
+            "msj_ClosedDriver": "Driver disabled.",
+            "msj_SuspendTimeDriver": "Driver suspended for a time.",
+            "msj_ApprovedDriver": "The driver has been released.",
+            "msj_UpdateLimitSendingAt": "The term was updated.",
+            "msj_PasswordChanged": "The password has been changed.",
+            "msj_ActivationCode": "You must generate the activation code.",
+            "msj_DriverCode": "You must enter the driver's code.",
+            "msj_PaymentType": "Choose type of payment.",
+            "msj_AdmisionDate": "Enter the admission date.",
+            "msj_ImageSaved": "Saved image.",
+            "msj_GifSaved": "Saved Gif."
+        }
+    },
+    "VEHICLE_MANTENANCE": {
+        "LABLE_TITLE": "Vehicle Maintainer",
+        "TITLE": {
+            "LIST": "List of vehicles",
+            "ADD": "Add new vehicle",
+            "EDIT": "Vehicle Edition"
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "CODE": "Code",
+                "BRAND": "Brand",
+                "MODEL": "Model",
+                "COLOR": "Color",
+                "LICENSE_PLATE": "Plate",
+                "YEAR_PRODUCTION": "Year of Manufacture",
+                "ENABLE": "Status",
+                "EDIT": "Edit"
+            },
+            "SAVE_VEHICLE": "Save",
+            "FIND_VEHICLE": "Search",
+            "SEARCH_LICENSE_PLATE": "Search by license plate / code"
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "VEHICLE",
+                "lbl_brand": "Brand",
+                "lbl_year": "Year Manufacturing",
+                "lbl_model": "Model",
+                "lbl_licensePlate": "License Plate"
+            },
+            "NAV": {
+                "nav_information": "Information",
+                "nav_documents": "Documents",
+                "nav_atributes": "Attributes",
+                "nav_workFormat": "Work Form",
+                "nav_busStop": "Bus stop",
+                "nav_Configuration": "Configuration"
+            },
+            "INFORMATION": {
+                "lbl_LicensePlate": "Licence Plate",
+                "lbl_Code": "Code",
+                "lbl_ModelBrand": "Brand and Model",
+                "lbl_Color": "Color",
+                "lbl_YearProduction": "Year Production",
+                "lbl_Owner": "Owner",
+                "lbl_PropertyType": "Property Type",
+                "lbl_FuelType": "Fuel",
+                "lbl_VehicleType": "Vehicle Type",
+                "lbl_NumSeats": "N° Seats",
+                "cbm_Brand": "--Select Brand--",
+                "cbm_Model": "--Select Model--",
+                "cbm_PropertyType": "--Select Property--",
+                "cbm_FuelType": "--Select Fuel Type--",
+                "cbm_VehicleType": "--Select Vehicle Type--",
+                "plh_LicensePlate": "License plate",
+                "plh_Code": "Code",
+                "plh_Color": "Choose color",
+                "plh_YearProduction": "Year production",
+                "plh_Owner": "Owner",
+                "plh_NumSeats": "N° seats",
+                "btn_NextStep": "Next"
+            },
+            "DOCUMENTS": {
+                "TITLE_ADD_DOCUMENT": "Add document",
+                "lbl_ViewDocument": "View Document",
+                "TABLE": {
+                    "HEAD": {
+                        "TYPE": "Document Type",
+                        "USE": "Use Vehicle",
+                        "DATE": "Expiration date",
+                        "DEADLINE": "Deadline",
+                        "STATE": "State",
+                        "EDIT": "Edit",
+                        "VIEW": "View"
+                    },
+                    "TITLE_VIEW_DOCUMENT": "Double click to view document"
+                },
+                "MODAL": {
+                    "lbl_typeDocument": "Document Type",
+                    "cmo_typeDocument": "-- Select --",
+                    "lbl_DocumentNumber": "Document Number",
+                    "lbl_expirationDate": "Expiration date",
+                    "plh_expirationDate": "Expiration date",
+                    "btn_Save": "Save",
+                    "btn_Update": "Update"
+                }
+            },
+            "ATRIBUTES": {
+                "lbl_invoice": "Provide Invoice",
+                "lbl_airConditioning": "Air Conditioning",
+                "lbl_wifi": "Wi-Fi",
+                "lbl_wideTrunk": "Wide Trunk",
+                "lbl_polarizedMoons": "Polarized Moons",
+                "lbl_electronicToll": "Electronic Toll",
+                "lbl_usbCharger": "USB charger",
+                "lbl_permitToAirport": "Permission to the Airport",
+                "lbl_pets": "Pets"
+            },
+            "WORK_FORM": {
+                "lbl_coverage": "Coverage",
+                "lbl_usinessUnit": "Business unit",
+                "lbl_observacion": "Observation",
+                "lbl_typesTrip": "Types of Trip",
+                "cmb_coverage": "-- Select Coverage--",
+                "cmb_usinessUnit": "-- Select Business unit--",
+                "phl_observacion": "Comment your observation",
+                "phl_typesTrip": "Select one or more types of trip",
+                "btn_Save": "Save"
+            },
+            "BUS_STOP": {
+                "lbl_corpac": "Corpac",
+                "lbl_gardenias": "Gardenias",
+                "lbl_Gamarra": "Gamarra",
+                "lbl_parqueUniversitario": "Parque Universitario",
+                "lbl_nexus": "Nexus"
+            },
+            "CONFIGURATION": {
+                "STATE": "State",
+                "lbl_Suspend": "Driver Suspend",
+                "lbl_Comment": "Comment",
+                "lbl_Duration": "Duration",
+                "btn_Approved": "Approved"
+            }
+        },
+        "TOAST": {
+            "msj_saveDocument": "The document was saved successfully.",
+            "msj_SelectDocument": "You must select the document.",
+            "msj_RegisterVehicle": "You must register the vehicle.",
+            "msj_SelectDocumentType": "Select a document type.",
+            "msj_EnterDocumentNumber": "Enter a document number.",
+            "msj_EnterDocumentExpired": "Enter the expiration date.",
+            "msj_UpdateStatusDocument": "Status updated correctly.",
+            "msj_SaveVehicle": "Successful saving.",
+            "msj_UpdateLimitSendingAt": "The term was updated.",
+            "msj_LicensePLate": "You must enter the license plate of the vehicle.",
+            "msj_VehicleCode": "You must enter the vehicle code.",
+            "msj_Brand": "You must select the make of the vehicle.",
+            "msj_Model": "You must select the vehicle model.",
+            "msj_Color": "Debe ingresar el color del vehículo.",
+            "msj_YearProduction": "You must enter the year of manufacture.",
+            "msj_OwnerType": "Debe seleccionar el tipo de propietario.",
+            "msj_VehicleType": "Debe seleccionar el tipo de vehículo."
+        }
+    },
+    "PERMISSION_MANTENANCE": {
+        "LABLE_TITLE": "User Permission",
+        "TITLE": {
+            "LIST": "List of User",
+            "ADD": "Add new User",
+            "EDIT": "User Edition"
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "USER": "User",
+                "NAME": "Name",
+                "LASTNAME": "LastName",
+                "EMAIL": "Email",
+                "TEMPLATE": "Template",
+                "ENABLE": "State",
+                "EDIT": "Edit"
+            }
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "User",
+                "lbl_user": "User",
+                "lbl_email": "Email",
+                "lbl_template": "Template"
+            },
+            "NAV": {
+                "nav_Information": "Information",
+                "nav_permission": "Permission",
+                "nav_account": "Account",
+                "nav_business-budget" : "Business budget"
+            },
+            "ACCOUNT": {
+                "lbl_email": "Email",
+                "lbl_access": "Access",
+                "lbl_tempalate": "Permissions template",
+                "lbl_enable": "Active",
+                "plh_email": "Enter your email",
+                "plh_username": "Enter a user",
+                "plh_password": "Enter the password",
+                "btn_password": "Update Paswoord",
+                "lbl_company" : "Company"
+            },
+            "BUSINESS_BUDGET": {
+                "lbl_day": "Day",
+                "lbl_budget": "Budget",
+                "lbl_type": "Type",
+                "lbl_enable": "Active"
+            },
+            "INFORMATION": {
+                "lbl_name": "Full Name",
+                "lbl_gender": "Genre",
+                "plh_FirstName": "Names",
+                "plh_FirstLastName": "Paternal Surname",
+                "plh_SecondLastName": "Maternal Surname",
+                "lbl_cellphone": "Cell Phone",
+                "lbl_countrycode": "Country code",
+                "lbl_document": "Document",
+                "lbl_documentType": "Document type",
+                "plh_tempalate": "- Select--:"
+            }
+        }
+    },
+    "PERMISSION_CLIENT_MANTENANCE": {
+        "LABLE_TITLE": "Client Permission",
+        "TITLE": {
+            "LIST": "List of Client",
+            "ADD": "Add new Client",
+            "EDIT": "Client Edition"
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "USER": "User",
+                "NAME": "Name",
+                "LASTNAME": "LastName",
+                "EMAIL": "Email",
+                "TEMPLATE": "Template",
+                "ENABLE": "State",
+                "EDIT": "Edit"
+            }
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "User",
+                "lbl_user": "User",
+                "lbl_email": "Email",
+                "lbl_template": "Template"
+            },
+            "NAV": {
+                "nav_Information": "Information",
+                "nav_permission": "Permission",
+                "nav_account": "Account",
+                "nav_business-budget" : "Business budget"
+            },
+            "ACCOUNT": {
+                "lbl_email": "Email",
+                "lbl_access": "Access",
+                "lbl_tempalate": "Permissions template",
+                "lbl_enable": "Active",
+                "plh_email": "Enter your email",
+                "plh_username": "Enter a user",
+                "plh_password": "Enter the password",
+                "btn_password": "Update Paswoord",
+                "lbl_company" : "Company"
+            },
+            "BUSINESS_BUDGET": {
+                "lbl_day": "Day",
+                "lbl_budget": "Budget",
+                "lbl_type": "Type",
+                "lbl_enable": "Active"
+            },
+            "INFORMATION": {
+                "lbl_name": "Full Name",
+                "lbl_gender": "Genre",
+                "plh_FirstName": "Names",
+                "plh_FirstLastName": "Paternal Surname",
+                "plh_SecondLastName": "Maternal Surname",
+                "lbl_cellphone": "Cell Phone",
+                "lbl_countrycode": "Country code",
+                "lbl_document": "Document",
+                "lbl_documentType": "Document type",
+                "plh_tempalate": "- Select--:"
+            }
+        }
+    },
+    "COMPANY_MANTENANCE": {
+        "LABLE_TITLE": "Company Maintainer",
+        "TITLE": {
+            "LIST": "List of companies",
+            "ADD": "Add new company",
+            "EDIT": "Company Edition"
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "Company",
+                "btn_save": "Save Changes"
+            },
+
+            "NAV": {
+                "nav_dynamicFields": "Campos Dinámicos",
+                "nav_information": "Information",
+                "nav_business-budget" : "Business budget"
+            },
+            "DYNAMIC_FIELDS": {
+                "lbl_TypeControl": "Type Field",
+                "lbl_FieldName": "Field Name",
+                "lbl_Description": "Description",
+                "lbl_IsRequired": "Required",
+                "cbm_TypeControl": "--Select type--",
+                "ngs_Alternatives": "Alternatives",
+                "plh_Alternatives": "Add at least 2 alternatives",
+                "btn_Save": "Save"
+            },
+            "INFORMATION_FIELDS": {
+                "lbl_creditType": "Type credit",
+                "lbl_creditLine": "Credit line",
+                "lbl_businessName": "Business Name",
+                "lbl_enable": "Enable",
+                "lbl_ruc": "RUC",
+                "lbl_tradeName": "Trade Name",
+                "btn_Save": "Save"
+            },
+            "BUSINESS_BUDGET": {
+                "lbl_day": "Días",
+                "lbl_budget": "Presupuesto",
+                "lbl_type": "Tipo",
+                "lbl_enable": "Activo"
+            }
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "RUC": "Ruc",
+                "BUSINESS_NAME": "Business Name",
+                "TRADE_NAME": "Trade Name",
+                "CREDIT_LINE": "Credit Line",
+                "DEBT": "Debt",
+                "BALANCE": "Balance",
+                "ENABLE": "Status",
+                "EDIT_DINAMICS": "D. Fields",
+                "EDIT": "Edit",
+                "COST_CENTER" : "Cost center",
+                "LINE_CREDIT": "Line Credit",
+                "NAME": "Name",
+                "TYPE": "Type",
+                "OPTION": "Options",
+                "DELETE": "Delete"
+            },
+            "SEARCH_BY": "Ruc / Business Name / Tradename",
+            "FIND_COMPANY": "Search"
+        }
+    },
+    "COSTCENTER_MANTENANCE": {
+        "LABLE_TITLE": "Cost center maintainer",
+        "TITLE": {
+            "LIST": "List of cost center",
+            "ADD": "Add new cost center",
+            "EDIT": "Cost center edition"
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "Cost center",
+                "btn_save": "Save Changues"
+            },
+            "NAV": {
+                "nav_dynamicFields": "Campos Dinámicos",
+                "nav_information": "Información",
+                "nav_business-budget" : "Business budget"
+            },
+
+            "INFORMATION_FIELDS": {
+                "lbl_areaId": "Area id",
+                "lbl_codeName1": "Code name 1",
+                "lbl_codeName2": "Code name 2",
+                "lbl_codeName3": "Code name 3",
+                "lbl_description": "Description",
+                "lbl_enable": "Enable",
+                "lbl_oldCenterCostId": "Old Cost Center id",
+                "btn_Save": "Save"
+            }
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "AREA_ID": "Id Area",
+                "CODE_NAME_1": "Code name 1",
+                "CODE_NAME_2": "Code name 2",
+                "CODE_NAME_3": "Code name 3",
+                "ENABLE": "Enable",
+                "DESCRIPTION": "Descripition",
+                "OLD_CENTER_COST_ID": "Old center cost id",
+                "EDIT": "Edit",
+
+                "NAME": "Nombre",
+                "TYPE": "Tipo",
+                "OPTION": "Opciones",
+                "DELETE": "ELiminar"
+            },
+            "SEARCH_BY": "Company",
+            "FIND_COMPANY": "Buscar"
+        }
+    },
+    "AREA_MANTENANCE": {
+        "LABLE_TITLE": "Area maintainer",
+        "TITLE": {
+            "LIST": "List of Area",
+            "ADD": "Add new Area",
+            "EDIT": "Area edition"
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "Area",
+                "btn_save": "Save Changues"
+            },
+            "NAV": {
+
+                "nav_information": "Información"
+            },
+
+            "INFORMATION": {
+                "lbl_areaId": "Area id",
+                "lbl_codeName1": "Code name 1",
+                "lbl_codeName2": "Code name 2",
+                "lbl_codeName3": "Code name 3",
+                "lbl_description": "Description",
+                "lbl_enable": "Enable",
+                "lbl_name": "Name",
+                "btn_Save": "Save"
+            }
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "AREA_ID": "Id Area",
+                "AREA_ID_ASOCIADA": "Id Area Associate",
+                "AREA_ASOCIADA": "Area Associate ",
+                "DESCRIPTION": "Descripition",
+                "EDIT": "Edit",
+                "NAME": "Name",
+                "TYPE": "Tipo",
+                "OPTION": "Opciones",
+                "DELETE": "ELiminar"
+            },
+            "SEARCH_BY": "Company",
+            "FIND_COMPANY": "Buscar"
+        }
+    },
+
+
+    "ZONE_MANTENANCE": {
+        "btn_SaveDrive": "Save",
+        "LABLE_TITLE": "Mantenedor Zone",
+        "TITLE": {
+            "LIST": "Ver Zonas",
+            "ADD": "Agregar nueva empresa",
+            "EDIT": "Edicion Empresa"
+        },
+        "ADD": {
+            "DETAILS": {
+                "title_Details": "Zone",
+                "btn_save": "Guardar Cambios"
+            },
+            "NAV": {
+                "nav_dynamicFields": "Campos Dinámicos"
+            },
+            "DYNAMIC_FIELDS": {
+                "lbl_TypeControl": "Tipo de Campo",
+                "lbl_FieldName": "Nombre Campo",
+                "lbl_Description": "Descripción",
+                "lbl_IsRequired": "Obligatorio",
+                "cbm_TypeControl": "--Seleccionar tipo--",
+                "ngs_Alternatives": "Alternativas",
+                "plh_Alternatives": "Agregue al menos 2 alternativas",
+                "btn_Save": "Guardar"
+            }
+        },
+        "LIST": {
+            "HEDEARS": {
+                "ID": "Id",
+                "ENABLE": "Status",
+                "NAME": "Name",
+                "COVERAGE": "Coverage",
+                "TYPE": "Tipo",
+                "OPTION": "Options",
+                "DANGER_ZONE": "Danger Zone",
+                "DISTRICT": "District",
+                "EDIT": "Edit",
+                "GEO_CERCA": "GeoCerca"
+            },
+            "INFORMATION": {
+                "lbl_TypeZona": "Type Zona",
+                "lbl_Name": "Name",
+                "lbl_Description": "Description",
+                "lbl_Coverage": "Coverage",
+                "lbl_DangerZone": "Danger Zone",
+                "lbl_GeoCerca": "Geocerca",
+                "lbl_Latitude": "Latitude",
+                "lbl_Longitude": "Longitude"
+
+            },
+            "SEARCH_BY": "Ruc / Razon Social / Nombre Comercial",
+            "FIND_COMPANY": "Buscar"
+        }
+    },
+    "VIEW": {
+        "SHARED_TRIP": {
+            "WILL_ARRIVE": "Will arrive in"
+        }
+    },
+    "MODAL_DRIVER_DETAILS": {
+        "DATA_LOG": {
+            "HEDEARS": {
+                "ID": "Id",
+                "TYPE": "Type",
+                "DESCRIPTION": "Description",
+                "DATE": "Day",
+                "USER": "User"
+            }
+        },
+        "DRIVER_DETAILS": {
+            "PERSONAL_DATA": "Personal Data",
+            "LAST_DATE": "Last day of session",
+            "STATE_TYPE_DRIVER": "Driver status",
+            "LAST_TRAVEL": "Last trip",
+            "DETAILS": {
+                "INFORMATION": "Information about",
+                "STATUS_DRIVER": "STATUS",
+                "STATUS_TRAVEL": "SERVICE STATUS",
+                "NRO_TRAVEL": "NRO TRIP",
+                "VEHICLE": "MOBILE",
+                "BRAND": "BRAND",
+                "MODEL": "MODEL",
+                "COLOR": "COLOR",
+                "PHONE": "TEAM",
+                "VEHICLE_PLATE": "PLATE",
+                "ATTRIBUTES": "ATTRIBUTES",
+                "HEADER_CHANGE_STATUS": "Change Driver Status",
+                "BTN_CHANGE": "Change",
+                "TOAST": {
+                    "NO_TRAVELS": "Driver does not have any service yet",
+                    "ORDER_DRIVER": "Driver order updated",
+                    "msj_EndDay": "End of the day.",
+                    "msj_StartTheDay": "Day started.",
+                    "msj_Occupied": "Driver occupied.",
+                    "msj_Close": "Closed conductor.",
+                    "msj_InService": "The driver has a service in progress.",
+                    "msj_DriverEndDay": "The driver has not started the day."
+                }
+            },
+            "GPS": {
+                "GPS": "GPS",
+                "LAST_POSITION": "Last GPS Position",
+                "BTN_VIEW": "View",
+                "SEND_POSITION": "Last position sent from the driver of"
+            },
+            "PRIO": {
+                "ORDER": "ZONE ORDER",
+                "BTN_PRIO": "PRIO",
+                "PLH_POSITION": "PLH_POSITION"
+            },
+            "TRACKING_DRIVER": {
+                "NO_TRACKING": "The trip is not Tracking."
+            }
+        }
+    },
+    "NUMBER_TRIP": "Trip ",
+    "ENABLE": {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+    },
+    "VALIDATE_PIN_MODAL": {
+        "title": "Validate Activation Code",
+        "lbl_Validate": "Activation code",
+        "lbl_Pin": "Código de activación",
+        "plh_Validate": "Activation code"
+    },
+    "EXIT_CONFIRMATION": {
+        "lbl_Title": "Closing confirmation",
+        "lbl_Content": "Are you sure to close the create service modal?",
+        "btn_Yes": "Yes",
+        "btn_No": "No"
+    },
+    "DRIVER_REGISTER": {
+        "btn_SignIn": "Login",
+        "btn_Logout": "Logout",
+        "lbl_Title": "Drive with the App",
+        "lbl_Footer": "All rights reserved.",
+        "title_DocumentApproved": "Approved",
+        "title_DocumentInReview": "In review",
+        "title_DocumentRejected": "Rejected",
+        "title_Start": "Start",
+
+
+        "FORM_DRIVER": {
+            "lbl_Title": "Register now",
+            "plh_FirstName": "Name",
+            "plh_FirstLastName": "First LastName",
+            "plh_DocumentNumber": "Document number",
+            "plh_Email": "E-mail",
+            "plh_Password": "Password",
+            "plh_CellPhone": "Cellphone number",
+            "lbl_Conditions": "By continuing, I accept that Satelital or its representatives can contact me by email, telephone or SMS (including automated means) at the email address or number that I indicate, including for advertising purposes.",
+            "btn_Next": "Next"
+        },
+        "VERIFY": {
+            "lbl_Title": "2-step verification: SMS",
+            "lbl_EnterCode": "Enter the 4-digit code you received",
+            "plh_Code": "Verification code",
+            "btn_Verify": "CHECK",
+            "btn_VerifyTitle": "Check",
+            "lbl_ReSend": "Resend code by:",
+            "btn_ReSend": "SMS"
+        },
+        "MODALITY": {
+            "lbl_ModalityTitle": "Choose how you want to generate profits with the App",
+            "lbl_ComingSoon": "Coming Soon",
+            "btn_Next": "NEXY"
+        },
+        "DRIVER_DOCUMENTS": {
+            "lbl_Title": "Welcome,",
+            "lbl_RequeridStep": "Required step",
+            "lbl_StepDescription": "You must complete the documents to proceed with the registration process.",
+            "lbl_MyDocuments": "My Documents",
+            "btn_Next": "NEXT",
+            "btn_Edit": "Edit"
+        },
+        "VEHICLE_REGISTER": {
+            "lbl_Title": "Register your vehicle",
+            "plh_LicensePlate": "License plate",
+            "plh_Color": "Choose color",
+            "plh_YearProduction": "Year of production",
+            "btn_Save": "Save",
+            "btn_Skip": "Skip"
+        },
+        "VEHICLE_DOCUMENTS": {
+            "lbl_Title": "Continue setting up your account,",
+            "lbl_RequeridStep": "Steps required",
+            "lbl_StepDescription": "You must complete the documents of the vehicles.",
+            "lbl_MyVehicles": "My vehicles",
+            "btn_AddVehicle": "Add new vehicle",
+            "title_LicensePlate": "License plate",
+            "title_Brand": "Brand",
+            "title_Model": "Model",
+            "title_YearProduction": "Year of production",
+            "lbl_Documents": "Documents",
+            "btn_EditDocument": "Edit document"
+        },
+        "SIGN_IN": {
+            "title": "Login to your account",
+            "lbl_IsDriver": "Apparently you already have an account with us. Please log in to continue.",
+            "lbl_User": "Enter email or mobile number",
+            "lbl_UserRequired": "Email or mobile number required.",
+            "lbl_Password": "Enter your password",
+            "lbl_PasswordRequired": "Password required.",
+            "plh_User": "Email or mobile number",
+            "btn_SignIn": "Login"
+        }
+    },
+    "MODAL_AUDIT_TRIP": {
+        "title_ShowActivities": "Show audit",
+        "HEADERS": {
+            "ID": "Id",
+            "TYPE": "Type",
+            "DESCRIPTION": "Description",
+            "DATE": "Day",
+            "USER": "User"
+        }
+    },
+    "REPORTS_MODULE": {
+        "SERVICE": {
+            "HEADERS": {
+                "DATE": "FECHA SERVICIO",
+                "HOUR": "HORA",
+                "SERVICE": "SERVICIO",
+                "STATUS": "ESTADO",
+                "COMPANY": "EMPRESA",
+                "MOOD": "MODO",
+                "MOVIL": "MOVIL",
+                "CLIENT": "CLIENTE",
+                "PAYMENT_TYPE": "TIPO PAGO",
+                "TOTAL_SERVICE": "TOTAL",
+                "ORIGIN": "ORIGEN",
+                "ZONE": "ZONE"
+            }
+        }
+    },
+    "OCURRIO_UN_PROBLEMA": "A problem occurred, please try again."
+}

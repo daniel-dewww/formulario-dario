@@ -1,0 +1,7 @@
+<ul ngbNav #nav="ngbNav" [activeId]="activateRoute" class="justify-content-center nav-pills">
+    <li [ngbNavItem]="link.path" *ngFor="let link of listaTabs">
+        <a ngbNavLink routerLink="{{link.path}}" class="font-text">
+            {{ link.title! | translate }}
+        </a>
+    </li>
+</ul>

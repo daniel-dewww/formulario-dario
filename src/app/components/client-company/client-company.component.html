@@ -1,0 +1,351 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-toast></p-toast>
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedClients()" [disabled]="!selectedClients || !selectedClients.length"></button>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+                    <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
+                </ng-template>
+            </p-toolbar>
+
+            <p-table #dt [value]="clients" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedClients" selectionMode="multiple" [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h5 class="m-0">Mantenedor Client Company</h5>
+                        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por el nombre..." />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="id">ID
+                            <p-sortIcon field="id"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="firstName">Nombre
+                            <p-sortIcon field="firstName"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="firstLastName">Apellido
+                            <p-sortIcon field = "firstLastName"></p-sortIcon>
+                        </th>
+                        <th>Email</th>
+                        <th pSortableColumn="credit_line">Pr. Asignado
+                            <p-sortIcon field="credit_line"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="debt">Deuda
+                            <p-sortIcon field="debt"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="balance">Saldo
+                            <p-sortIcon field="balance"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="status">Status
+                            <p-sortIcon field="status"></p-sortIcon>
+                        </th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-client>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="client"></p-tableCheckbox>
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">ID</span> {{client.id}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Nombre</span> {{client.firstName}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Apellido</span> {{client.firstLastName}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Email</span> {{client.email}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">credito</span> {{client.company[0].credit.credit_line }}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">debito</span> {{client.company[0].credit.consumption}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">saldo</span> {{client.company[0].credit.BagBalance}}
+                        </td>
+                        <td style="width:14%; min-width: 10rem;"><span class="p-column-title">Status</span>
+                            <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': client.enable, 'false-icon pi-times-circle text-pink-500 ': !client.enable}"></i> </td>
+                        <td>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editClient(client)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteClient(client)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <p-dialog [(visible)]="clientDialog" [style]="{width: '750px'}" header="Client Details" [modal]="true" class="p-fluid" >
+            <ng-template pTemplate="content">
+                <!-- <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image"> -->
+
+                <!-- <div class="field">
+                    <label for="status">Inventory Status</label> 
+                    <p-dropdown id="status" [options]="product" optionLabel="name" [(ngModel)]="product.id" placeholder="Seleccione una área">
+                        <ng-template let-selectedItem pTemplate="selectedItem">
+                            <span *ngIf="product">{{selectedItem.name}}</span>
+                        </ng-template>
+                    </p-dropdown>
+                    </div>-->
+
+                <div class="card">
+                    <h5>Informacion</h5>
+                    <div class="p-fluid p-formgrid grid">
+
+                            <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+                                <input type="hidden" pInputText id="id" [(ngModel)]="client.id" class="p-inputtext p-component p-element"/>
+
+                                <label for="firstName">Nombre</label>
+                                <input type="text" pInputText id="firstName" [(ngModel)]="client.firstName" class="p-inputtext p-component p-element"
+                                required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.firstName}" />
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.firstName">First Name is required.</small>
+                            </div>
+                            <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+                                <label for="name">Apellido Paterno</label>
+                                <input type="text" pInputText id="firstLastName" [(ngModel)]="client.firstLastName" class="p-inputtext p-component p-element"
+                                required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.firstLastName}" />
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.firstLastName">Apellido paterno is required</small>
+                            </div>
+                            <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+                                <label for="secondLastName">Apellido Materno</label>
+                                <input type="text" pInputText id="secondLastName" [(ngModel)]="client.secondLastName" class="p-inputtext p-component p-element"
+                                required autofocus />                           
+                            </div>
+                
+                       
+                            <div class="col-12 md:col-3">
+                                <label for="countryCode">Codigo de país</label>
+                                <input type="text" pInputText id="countryCode" [(ngModel)]="client.countryCode" class="p-inputtext p-component p-element"
+                                required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.countryCode}" />
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.countryCode">Codigo de país es requerido.</small>
+                            </div>
+                            <div class="col-12 md:col-6">
+                                <label for="cellPhone">Celular</label>
+                                <input type="text" pInputText id="cellPhone" [(ngModel)]="client.cellPhone" class="p-inputtext p-component p-element"
+                                required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cellPhone}" />
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cellPhone">Celular es requerido.</small>
+                            </div>
+                    </div><br>
+                    <!-- <pre>{{documentType.id | json}}</pre> -->
+                        <div class="grid formgrid">
+                            <div class="col-12 md:col-5">
+                                <label for="documentType">Documento</label>
+                                <p-dropdown [options]="documentTypes" [(ngModel)]="documentType.id" id="documentType" placeholder="Seleccione tipo de documento" 
+                                [showClear]="true" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !documentType.id}"></p-dropdown>
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !documentType.id">Seleccione tipo de documento.</small>
+
+                            </div>
+                            <div class="col-12 md:col-6">
+                                <label for="numeroDocumento">N° documento</label>
+                                <input type="text" pInputText id="numeroDocumento" [(ngModel)]="client.document" class="p-inputtext p-component p-element"
+                                required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.document}" />
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.document">N° docuemento es requerido.</small>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="p-fluid p-formgrid grid">
+                            <!-- <pre>{{gender.id | json}}</pre> -->
+                            <div class="field col-12">
+                                <label for="gender">Genero</label>
+                                <p-dropdown [options]="genders!" [(ngModel)]="gender.id" id="gender" placeholder="Selecciona un genero" [showClear]="true"></p-dropdown>
+                            </div>
+                        </div>
+                        <h5>Cuenta</h5>
+                        <div class="p-fluid p-formgrid grid">
+                            <div class="field col-12 md:col-6">
+                                <label for="email">Email</label>
+                                <input pinputtext="" id="email" [(ngModel)]="client.email" type="text" class="p-inputtext p-component p-element"
+                                [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.email}">
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.email">Email is required.</small>
+                            </div>
+                            <div class="field col-12 md:col-6">
+                                <label for="pass">Contraseña</label>
+                                <input pinputtext="" id="pass" *ngIf="!client.id" [(ngModel)]="client.password" type="password" class="p-inputtext p-component p-element"
+                                [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.password}">
+                                <p-button *ngIf="client.id" label="Cambiar Contraseña" (click)="showPasswordInput()"></p-button>
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.password && !client.id">Password is required.</small>
+                            </div>
+                        </div>
+
+                        <div class="p-fluid p-formgrid grid" *ngIf="passwordInput">
+                            <div class="field col-12 md:col-6">
+                                <label for="npass">Nueva Contraseña</label>
+                                <input pinputtext="" id="npass" [(ngModel)]="passwordChange!" type="password" class="p-inputtext p-component p-element"
+                                [ngClass]="{'ng-invalid ng-dirty' : submitted && !passwordChange}">
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !passwordChange">New Password is required.</small>
+                            </div>
+                            <div class="field col-12 md:col-6">
+                                <label for="btn-savepass" class="text-white">BTN</label>
+                                <p-button label="Guardar Contraseña" id="btn-savepass" (click)="ChangePassword()"></p-button>
+                            </div>
+                        </div>
+
+                        <div class="p-fluid p-formgrid grid">
+                            <!-- <pre>{{companyC.profile | json }}</pre> -->
+                            <div class="field col-12">
+                                <label for="permisos">Permisos</label>
+                                <p-dropdown [options]="profile" [(ngModel)]="companyC.profile"  placeholder="Seleccione permisos" [showClear]="true"
+                                [ngClass]="{'ng-invalid ng-dirty' : submitted && !companyC.profile}"></p-dropdown>
+                                <small class="ng-dirty ng-invalid" *ngIf="submitted && !companyC.profile">Seleccione una opción.</small>
+                            </div>
+                            <div class="field col-12 md:col-6">
+                                <h6>Enable</h6>
+                                <p-inputSwitch [(ngModel)]="client.enable" ></p-inputSwitch>
+                            </div>
+                        </div>
+                        <div>
+                            <!--<pre>{{idCentroCosto | json }}</pre> -->
+                            <div class="field">
+                                <label for="costCenter">Centro de Costo</label>
+                                <!-- a ese atributo company.costcenter lo esta seteando toda la informacion de lo que llega de un item de la lista costCenters 
+                                 En teoria esta bien porque obtendrias el id -- > this.company.costcenter.id
+                                 pero como este modal se usa para edicion y creacion 
+                                 entonces el tema de la edicion seria el problema  ya que probablemente el servicio te mande el idcentro de costo asi -- > company.costcenter
+                                 entonces habria un problema al no reconocerlo si coloco asi -- -> company.costcenter.id
+                                 Lo mas recomendable es usar una variable aparte 
+                                 y si es el guardar asignalo antes a company.costcenter = variable
+                                 y al editar en el ngonint  variable = company.costcenter 
+                                -->
+                                <p-dropdown id="costCenter" [options]="costCenters" optionLabel="codeName1" [(ngModel)]="idCentroCosto" placeholder="Seleccione Centro de Costo" [showClear]="true">
+                                    <ng-template let-costcenter pTemplate="costcenter">
+                                        <span *ngIf="costCenter">{{costcenter.codeName1}}</span>
+                                    </ng-template>
+                                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !idCentroCosto">Centro de costo is required.</small>
+                                </p-dropdown>
+                            </div>
+                        </div>
+
+                        <h5>Presupuesto Empresarial</h5>
+                        <br>
+                        <div class="grid">
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.L" id="L"></p-checkbox>
+                                    <label for="L">Lu</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.M" id="M"></p-checkbox>
+                                    <label for="M">Ma</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.X" id="X"></p-checkbox>
+                                    <label for="X">Mi</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.J" id="J"></p-checkbox>
+                                    <label for="J">Ju</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.V" id="V"></p-checkbox>
+                                    <label for="V">Vi</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.S" id="S"></p-checkbox>
+                                    <label for="S">Sa</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-1">
+                                <div class="field-checkbox">
+                                    <p-checkbox name="group1" [binary]="true" [(ngModel)]="week.D" id="D"></p-checkbox>
+                                    <label for="D">Do</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-fluid p-formgrid grid">
+                            <div class="field col-12">
+                                <label for="credit_line">Presupuesto</label>
+                                <input type="number" pInputText id="credit_line" [(ngModel)]="credit.credit_line" class="p-inputtext p-component p-element"
+                                required autofocus/>
+                                <!-- <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cellPhone">Celular is required.</small> -->
+                            </div>
+                        </div>
+
+                        <div class="grid">
+                            
+                            <div class="col-12 md:col-3">
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="mensual" value="Mensual" [(ngModel)]="credit.payment_date_type" id="mensual"></p-radioButton>
+                                    <label for="mensual">Mensual</label>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-3">
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="anual" value="Anual" [(ngModel)]="credit.payment_date_type" id="anual"></p-radioButton>
+                                    <label for="anual">Anual</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="p-fluid p-formgrid grid">
+                            <div class="field col-12 md:col-6">
+                                <h6>Activo</h6>
+                                <p-inputSwitch [(ngModel)]="credit.enable"></p-inputSwitch>
+                            </div>
+
+                        </div>
+                    
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+                <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveClient()"></button>
+            </ng-template>
+
+        </p-dialog>
+
+
+        <!-- Ventana para eliminar -->
+        <p-dialog [(visible)]="deleteClientDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span *ngIf="client">Estas seguro que quieres DESHABILITAR a <b>{{client.firstName}}</b>?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteClientDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+            </ng-template>
+        </p-dialog>
+
+
+        <!-- Ventana para eliminar SELECCIONADOS -->
+        <p-dialog [(visible)]="deleteClientsDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span>Estas seguro que quieres ELIMINAR los productos seleccionados ?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteClientsDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>
+<!-- <pre>costCenter</pre>
+<pre>{{costCenters | json }}</pre> -->

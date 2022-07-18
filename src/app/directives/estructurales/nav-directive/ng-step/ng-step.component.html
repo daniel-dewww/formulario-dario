@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <ul  [ngClass]="{'all-step': validateFinalStepIndex()}">
+    <ng-container *ngFor="let link of listaTabs; index as i ">
+      <li  
+      routerLink="{{link.path}}" routerLinkActive="active">
+        {{ link.title! | translate }}
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<!-- [class.full]="fill === 100" -->

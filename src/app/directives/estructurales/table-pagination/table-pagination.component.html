@@ -1,0 +1,59 @@
+<div id="{{idTablePagination}}">
+    <ng-container *ngIf="flagSpinner">
+        <nexus-spinner-loading [idName]="idTablePagination"></nexus-spinner-loading>
+    </ng-container>
+    
+    <ng-container *ngIf="flagPaginationFront">
+        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="paginationCollectionSize"
+            [pageSize]="paginationPageSize" (pageChange)="pageChange($event)" [(page)]="page" [boundaryLinks]="true">
+        </ngb-pagination>
+    </ng-container>
+
+   <div [ngClass]="{
+        'table-responsive': flagHover,
+        'table-hover': flagResponsive,
+        'table-header-static': flagHeaderStatic,
+        'table-header-primary': flagHeaderCorporativo
+    }" class="table-responsive table-hover">
+        <table class="table font-size">
+            <!-- <caption>Lista de Cobertura</cap  tion> -->
+            <thead *ngIf="flagHeader" >
+                <tr>
+                    <td *ngIf="flagIndex"></td>
+                    <th *ngFor="let hedear of hedears">{{hedear.name! | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let data of body; index as i">
+                    <tr>
+                        <td class="vertical-align" *ngIf="flagIndex">{{i}}</td>
+                        <td class="vertical-align" *ngFor="let hedear of hedears" (click)="clickColum(hedear,data)">
+                            <ng-container [ngSwitch]="hedear.type">
+                                <ng-container *ngSwitchCase="'TEMPLATE'">
+                                    <ng-container
+                                        *ngTemplateOutlet="hedear.personalization?.template!; context: { data : data }">
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'ICON_CLASS'">
+                                    <i [ngClass]="classForColum(hedear?.type!,hedear?.personalization)"></i>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    <div [ngStyle]="styleForColum(hedear.type!,hedear.personalization!)"
+                                        [ngClass]="classForColum(hedear.type!,hedear.personalization!)">                                       
+                                        {{ data | findValueArray: hedear.value! }}
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>    
+    </div>
+    <br>
+    <ng-container *ngIf="flagPagination">
+        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="paginationCollectionSize"
+            [pageSize]="paginationPageSize" (pageChange)="pageChange($event)" [(page)]="page" [boundaryLinks]="true">
+        </ngb-pagination>
+    </ng-container>
+</div>

@@ -1,0 +1,136 @@
+<!-- <ng-select [multiple]="multiple" [items]="serverSideFilterItems" placeholder="{{placeHolder | translate}}"
+    [(ngModel)]="selectedValue" (keydown.control)="onSearch($event.target.value, select, true)" #select [loading]="true"
+    (search)="onSearch($event, select)" (keydown.enter)="onSearchMobile($event.target.value, select, true)"
+    (change)="onchange($event, select)"> -->
+
+<!-- 
+<ng-select [multiple]="multiple" 
+    [items]="serverSideFilterItems" 
+    placeholder="{{placeHolder | translate}}"
+    [editableSearchTerm]="true" 
+    [(ngModel)]="selectedValue" #select [loading]="true" 
+    (search)="onSearch($event, select)" (change)="onchange($event, select)"
+    (keyup)="ArrowUp($event.target, select)" 
+    (keydown)="ArrowDown($event)" [readonly]="readonly"
+    (keydown.enter)="onSearchEnter($event.target, select,true)">
+
+    <ng-template ng-typetosearch-tmp>
+        <div class="ng-option disabled">
+            {{ 'STANDARD_NAMES.ngSel_TipoBusqueda' | translate }}
+        </div>
+    </ng-template>
+
+    <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+        <div class="ng-option disabled">
+            {{ 'STANDARD_NAMES.ngSel_SinResultado' | translate }} "{{searchTerm}}".
+        </div>
+    </ng-template>
+
+    <ng-template ng-loadingtext-tmp let-searchTerm="searchTerm">
+
+        <ng-template [ngIf]="searchTerm && searchTerm.lenght > 0" [ngIfElse]="findItem">
+            <div class="ng-option disabled">
+                {{ 'STANDARD_NAMES.ngSel_Buscando' | translate }} "{{searchTerm}}",
+                {{ 'STANDARD_NAMES.ngSel_Espere' | translate }}
+            </div>
+        </ng-template>
+
+        <ng-template #findItem>
+            <div class="ng-option disabled">
+            Escriba un punto
+            </div>
+        </ng-template>
+
+    </ng-template>
+
+    <ng-template ng-loadingspinner-tmp>
+        <div *ngIf="loaded" class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </ng-template>
+
+    <ng-template ng-label-tmp let-item="item">
+        <ng-container *ngFor="let label of bindLabel">
+            <span> {{item[label]}} </span>
+        </ng-container>
+        <span class="ng-value-icon right" aria-hidden="true">×</span>
+    </ng-template>
+
+    <ng-template ng-option-tmp let-item="item">
+        <ng-container [ngSwitch]="mainTextOption">
+            <div *ngSwitchCase="true">
+                <i *ngIf="item.adicional" class="fa fa-heart" [ngClass]="item.adicional ? 'text-primary': ''"></i>
+                <ng-container *ngFor="let value of bindValue; index as i">
+                    <ng-container *ngIf="i < mainTextOptionLength">
+                        <span [ngClass]="item.adicional ? 'text-primary': ''"> {{item[value]}} </span>
+                    </ng-container>
+
+                    <ng-container *ngIf="i == mainTextOptionLength">
+                        <br>
+                    </ng-container>
+
+                    <ng-container *ngIf="i >= mainTextOptionLength">
+                        <small [ngClass]="item.adicional ? 'text-primary': 'text-gray'"> {{item[value]}} <label *ngIf="i < bindValue.length-1">-</label></small>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div *ngSwitchDefault>
+                <i *ngIf="item.adicional" class="fa fa-heart" [ngClass]="item.adicional ? 'text-primary': ''"></i>
+                <ng-container *ngFor="let value of bindValue">
+                    <span [ngClass]="item.adicional ? 'text-primary': ''"> {{item[value]}} </span>
+                </ng-container>
+            </div>
+        </ng-container>
+
+
+    </ng-template>
+</ng-select>  -->
+<ng-container *ngIf="routeService == 'maintenanceAutocompletePersonalGet';else destinos">
+<p-autoComplete 
+[placeholder]="placeHolder"
+(onSelect)="onchange($event)" [(ngModel)]="text" 
+[suggestions]="serverSideFilterItems" 
+(completeMethod)="onSearch($event, select)" 
+field="firstName">
+    <ng-template let-cas  pTemplate="item">
+        <div class="country-item" >
+            <div> {{cas.firstName}} {{cas.firstLastName}} {{cas.secondLastName}}</div>
+          
+        </div>
+    </ng-template>
+</p-autoComplete>
+</ng-container>
+
+<ng-template #destinos>
+    <p-autoComplete 
+[placeholder]="placeHolder"
+(onSelect)="onchange($event)" [(ngModel)]="text" 
+[suggestions]="serverSideFilterItems" 
+(completeMethod)="onSearch($event, select)" 
+field="mainText"
+>
+    <ng-template let-cas  pTemplate="item">
+        <div class="country-item" >
+            <div>{{cas.mainText}}</div>
+        </div>
+    </ng-template>
+</p-autoComplete>
+</ng-template>
+
+<!-- **NOT set/put "field" attribute** -->
+<!-- <p-autoComplete #customId [(ngModel)]="value" (onSelect)="select($event)" [suggestions]="suggestions" (completeMethod)="filter($event)">
+    <ng-template let-v pTemplate="item">
+    {{v.name}} {{v.lastname}} {{v.etc}}
+    </ng-template>
+    </p-autoComplete>
+    
+    TS
+    @ViewChild('customId', {static: false}) auto:any;
+    
+    select(v : any) {
+    let allFilds:string = v.name+' '+v.lastname.....
+    this.auto.inputFieldValue = allFilds.trim();
+    } -->

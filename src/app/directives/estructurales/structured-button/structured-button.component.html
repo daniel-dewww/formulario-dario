@@ -1,0 +1,11 @@
+<!-- <pre>  {{disabled | json}} </pre> -->
+<a *ngIf="lblShorcut" class="float-shortcut-large" style="margin-left: 5px;">- {{lblShorcut}}</a>
+<!-- {{validate}} -->
+<button
+pButton pRipple id="btnStructured" [ngStyle]="Style" [ngClass]="Class!"
+    title="{{tittle}}" [disabled]="disabled" (click)="clickOnChange($event)">
+    <i *ngIf="showSpinner" class="fa fa-spinner fa-spin" ></i>
+    {{label}}
+</button>
+
+<!-- <button pButton pRipple type="button" label="Solicitar" class="p-button-danger mr-2 mb-2"></button> -->

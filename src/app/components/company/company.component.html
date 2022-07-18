@@ -1,0 +1,279 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-toast></p-toast>
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                        <!-- <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+                    <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
+                </ng-template>
+            </p-toolbar>
+
+            <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" 
+            [globalFilterFields]="['name','country.name','representative.name','status']" 
+            [rows]="10" [paginator]="true"
+            [rowsPerPageOptions]="[10,20,30]"
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+            [(selection)]="selectedProducts" selectionMode="multiple" 
+            [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h5 class="m-0">Mantenedor Company</h5>
+                        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por el nombre..." />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="id">ID
+                            <p-sortIcon field="id"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="name">Ruc
+                            <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="razonSocial">Razon social
+                            <p-sortIcon field="razonSocial"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="nombreComercial">Nombre comercial
+                            <p-sortIcon field="nombreComercial"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="Pr-asig">Pr.Asignado
+                            <p-sortIcon field="Pr-asig"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="deuda">Deuda
+                            <p-sortIcon field="deuda"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="saldo">Saldo
+                            <p-sortIcon field="saldo"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="inventoryStatus">Status
+                        </th>
+                        <th> C.Dinámicos </th>
+                        <th> Centro de costos </th>
+                        <th> Editar </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">ID</span> {{product.id}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Ruc</span> {{product.ruc}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Razón social</span> {{product.businessName}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Nombre comercial</span> {{product.tradeName}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Pr.Asignado</span> {{product.credit.creditLine}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Deuda</span> {{product.credit.debt}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Saldo</span> {{product.credit.balance}}
+                        </td>
+                        <td style="width:14%; min-width: 10rem;"><span class="p-column-title">Status</span>
+                            <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': product.enable, 'false-icon pi-times-circle text-pink-500 ': !product.enable}"></i> </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">C.Dinamicos</span>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+                            </div>
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Centro de costos</span>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="openCostCenter()"></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+                                <!-- <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button> -->
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <p-dialog [(visible)]="productDialog" [style]="{width: '700px'}" header="Campos dinámicos" [modal]="true" class="p-fluid">
+            <ng-template pTemplate="content">
+                <div class="card p-fluid">
+                    <div class="p-formgrid grid">
+                        <div class="field col">
+                            <label htmlFor="name2">Tipo de campo*</label>
+                            <p-dropdown [options]="lstDynamicControls" optionLabel="name" [(ngModel)]="typeControlId" (onChange)="changeType()"></p-dropdown>
+                        </div>
+                        <div class="field col">
+                            <label htmlFor="email2">Nombre de campo*</label>
+                            <input pInputText id="email2" type="text"  [(ngModel)]="fieldName"/>
+                        </div>
+                    </div>
+                    <div class="p-formgrid grid">
+                        <div class="field col">
+                            <label htmlFor="name2">Descripción</label>
+                            <input pInputText id="name2" type="text" [(ngModel)]="description" />
+                        </div>
+                        <br>
+                        <br>
+                        <div class="field col" style="display: flex;justify-content: end;align-items: end;">
+                            <div class="field-checkbox">
+                                <p-toggleButton [(ngModel)]="required" onLabel="Si" offLabel="No" [style]="{'width': '10em'}"></p-toggleButton>
+                                <label for="ny">Obligatorio</label>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="p-formgrid grid" *ngIf="isClosed">
+                            <div class="field col">
+                                <label htmlFor="name2">Alternativas*</label>
+                                <p-chips [(ngModel)]="lstElements"></p-chips>
+                            </div>
+                        </div>
+                
+                    <div class="p-formgrid grid"> 
+                    <button pButton label="Guardar" (click)="saveDynamicField()"></button>
+                    </div>
+                    <div class="p-formgrid grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <!-- <h5>Filter Menu</h5> -->
+                                <p-table #dt1 [value]="listDynamicField" dataKey="id" [rows]="10" [loading]="loading" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll">
+                                    <ng-template pTemplate="caption">
+                                        <div class="flex justify-content-between flex-column sm:flex-row">
+                                            <!-- <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                                            <span class="p-input-icon-left mb-2">
+                                                <i class="pi pi-search"></i>
+                                                <input pInputText type="text" #filter (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search Keyword" class="w-full"/>
+                                            </span> -->
+                                        </div>
+                                    </ng-template>
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>
+                                                <div class="flex justify-content-between align-items-center">
+                                                    Id
+                                                    <p-sortIcon field="id"></p-sortIcon>                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="flex justify-content-between align-items-center">
+                                                    Name
+                                                    <p-sortIcon field="Name"></p-sortIcon>                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="flex justify-content-between align-items-center">
+                                                    Tipo
+                                                    <p-sortIcon field="Tipo"></p-sortIcon>                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="flex justify-content-between align-items-center">
+                                                    Opciones
+                                                    <p-sortIcon field="Opciones"></p-sortIcon>                                                      
+                                                </div>
+                                            </th>
+                                            <!-- <th>
+                                                <div class="flex justify-content-between align-items-center">
+                                                    Eliminar
+                                                    <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+                                                </div>
+                                            </th> -->
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-customer>
+                                        <tr>
+                                            <td style="min-width: 12rem;">
+                                                {{customer.id}}
+                                            </td>
+                                            <td style="min-width: 12rem;">
+                                                {{customer.name}}
+                                            </td>
+                                            <ng-container *ngIf="customer.dynamicFieldType.code == 'COMPANY_DYNAMICFIELD_TYPE_FIELD_OPEN';else templateCampoCerrado">
+                                                <td style="min-width: 12rem;">
+                                                    Abierto
+                                                </td>
+                                            </ng-container>
+                                            <ng-template #templateCampoCerrado>
+                                                <td style="min-width: 12rem;">
+                                                    Cerrado
+                                                </td>
+                                            </ng-template>
+                                            <ng-container *ngIf="customer.dynamicFieldType.code == 'COMPANY_DYNAMICFIELD_TYPE_FIELD_OPEN';else SelectTemplateCampoCerrado">
+                                                <td style="min-width: 12rem;">
+                                                    {{customer.name}}
+                                                </td>
+                                            </ng-container>
+                                            <ng-template #SelectTemplateCampoCerrado>
+                                                <td style="min-width: 12rem;">
+                                                    <p-dropdown [options]="customer.values" optionLabel="value"></p-dropdown>
+                                                </td>
+                                            </ng-template>
+                                            <td>
+                                                <div class="flex">
+                                                    <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button> -->
+                                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="btnDelete(customer.id)"></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="7">No customers found.</td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="loadingbody">
+                                        <tr>
+                                            <td colspan="7">Loading customers data. Please wait.</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+                <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button> -->
+                <!-- <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button> -->
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteProductDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span *ngIf="product">Are you sure you want to delete <b>{{product.businessName}}</b>?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteProductsDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span>Are you sure you want to delete selected products?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductsDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>
+<!-- <pre>products</pre>
+<pre>{{products | json }}</pre> -->

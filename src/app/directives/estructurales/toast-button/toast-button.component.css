@@ -1,0 +1,26 @@
+:host {
+  background-color: var(--variable-toast-button);
+  padding: 10px 10px 10px 10px !important;
+}
+
+.display-toastButton{
+  display: inline;
+}
+
+.btn-toast{
+  padding: 5px 5px 5px;
+  background: var(--variable-Empresa);
+  border-radius: 0.25rem; 
+}
+
+/* .btn-pink {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+} */
+
+   
+/* float: right;
+padding: 5px 5px 5px;
+background: rgb(239, 73, 77);
+border-radius: 10px; */
+/* display: inline-flex; */

@@ -1,0 +1,18 @@
+<ng-select 
+        [items]="listMatch"
+        [multiple]="false"
+        bindLabel="{{bindLabel}}"
+        bindValue="{{bindValue}}"
+        [loading]="loading"
+        [(ngModel)]="selectMatch"
+        (search)="onSearch($event)"
+        [editableSearchTerm]="true"
+        (change)="onchange($event)"
+        [clearable]="true"
+        placeholder="{{placeHolder | translate}}"
+        #select>
+    <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+        <span *ngIf="searchTerm">Disponible: <b>{{searchTerm}}</b></span>
+        <span *ngIf="!searchTerm">Sin items</span>
+    </ng-template>
+</ng-select>

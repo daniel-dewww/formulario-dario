@@ -1,0 +1,55 @@
+<div *ngFor="let destino of destinations; index as i">
+    <div *ngIf="i == 0" class="grid p-fluid">
+        <div class="col-12 md:col-1">
+            <img class=""
+                src="http://alotaxi.nexusvirtual.net/intranet-test/assets/empresas/alo_taxi/img/busqueda/origen.png"
+                width="30">
+        </div>
+        <div class="col-12 md:col-11">
+            <nexus-input-geo-autocomplete [disablePoint]="disablePoint" *ngIf="!inputOriginEdit"
+                [placeHolder]="placeHolderDirOrigen" [searchJson]="coberturePosition"
+                [findInit]="destino.origin?.addressMainText!" [latInit]="destino.origin?.latitude!"
+                [lngInit]="destino.origin?.longitude!" (onData)="onchangeGeo($event, i, true)"
+                (onChange)="onchangeGeo($event, i,true)" [favoritos]="false" [lstFavoritos]="lstFavoritos"
+                [clientId]="clientId" [companyId]="companyId" (onChangeFavoritos)="onChangeFavoritosEmit()">
+            </nexus-input-geo-autocomplete>
+            <input *ngIf="inputOriginEdit" type="text" placeholder="Origen"
+                [(ngModel)]="destino.origin!.addressMainText!" class="form-control background-input">
+        </div>
+    </div>
+    <br>
+    <div class="grid p-fluid mb-2 input-style-destino" *ngIf="!flagSinDireccion">
+        <div class="col-12 md:col-1">
+            <img class="search-img-origin marker"
+                src="http://alotaxi.nexusvirtual.net/intranet-test/assets/empresas/alo_taxi/img/busqueda/destino.png"
+                width="30">
+        </div>
+        <div class="col-12 md:col-11 ">
+            <nexus-input-geo-autocomplete [disablePoint]="disablePoint" *ngIf="!inputDestinationEdit"
+                [placeHolder]="placeHolderDirDestino" [searchJson]="coberturePosition"
+                [findInit]="destino.destination?.addressMainText!" [latInit]="destino.destination?.latitude!"
+                [lngInit]="destino.destination?.longitude!" (onChange)="onchangeGeo($event, i)"
+                (onData)="onchangeGeo($event, i)" [favoritos]="false" [lstFavoritos]="lstFavoritos"
+                [clientId]="clientId" [companyId]="companyId" (onChangeFavoritos)="onChangeFavoritosEmit()">
+            </nexus-input-geo-autocomplete>
+            <input *ngIf="inputDestinationEdit" type="text" placeholder="Destino"
+                [(ngModel)]="destino.destination!.addressMainText!" class="form-control background-input">
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-6">
+        <div style="display: flex;justify-content: start;">
+            <p-button [disabled]="disablePoint " tabindex="1" *ngIf="destinations?.length!> 1"
+                (click)="quitarDestino(this.destinations?.length!-1, 'D'+this.destinations?.length!)" icon="pi pi-minus"
+                class="p-button-danger">
+            </p-button>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+        <div style="display: flex;justify-content: end;">
+            <p-button (click)="agregarDestino()" icon="pi pi-plus" class="p-button-danger"></p-button>
+        </div>
+    </div>
+</div>

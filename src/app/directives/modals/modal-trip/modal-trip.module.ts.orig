@@ -1,0 +1,46 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ModalTripRoutingModule } from './modal-trip-routing.module';
+import { ModalTripComponent } from './modal-trip.component';
+<<<<<<< HEAD
+import { AllPassengersComponent } from './all-passengers/all-passengers.component';
+import { MtDestinationsComponent } from './mt-destinations/mt-destinations.component'
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MtHeaderComponent } from './mt-header/mt-header.component';
+import { SharedTranslateModule } from 'src/app/core/shared/shared-translate.module';
+>>>>>>> 38f948f1abbdafe18367de50828a1cac69d010e5
+
+const Component = [
+  MtHeaderComponent
+]
+
+@NgModule({
+  declarations: [
+    ModalTripComponent,
+<<<<<<< HEAD
+    AllPassengersComponent,
+    MtDestinationsComponent
+=======
+    Component
+>>>>>>> 38f948f1abbdafe18367de50828a1cac69d010e5
+  ],
+  imports: [
+    CommonModule,
+    ModalTripRoutingModule,
+    
+    FormsModule,  
+    ReactiveFormsModule,
+    SharedTranslateModule,
+    
+  ],
+  exports: [
+    ModalTripComponent
+  ],
+
+
+})
+export class ModalTripModule { }
+
+

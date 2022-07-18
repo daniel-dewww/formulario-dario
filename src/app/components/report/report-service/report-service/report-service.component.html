@@ -1,0 +1,216 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-toast></p-toast>
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                        <!-- <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+                    <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="getExportXLSX()"></button>
+                </ng-template>
+            </p-toolbar>
+   
+            <p-table #dt [value]="body" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row  md:align-items-center">
+                        <!-- <h5 class="m-0">Reporte de servicios</h5> -->
+                        <!-- <span class="block m-2 md:mt-0 p-input-icon-left">
+                            <div nexus-input-autocomplete [mainTextOption]="true" [mainTextOptionLength]="3"
+                            [placeHolder]="'Codigo de conductor / nombre / email'"
+                            [bindLabel]="['firstName', 'firstLastName']"
+                            [bindValue]="['firstName', 'firstLastName', '-', 'code']"
+                            [structService]="structServiceArray" [routeService]="routeServiceDriverList"
+                            [findInit]="initDriver" [(selectedValue)]="driver"
+                            (onChange)="onchangeDriver($event)" [searchJson]="jsonSearchDriver">
+                        </div>
+                         </span> -->
+                        <span class="block m-2 md:mt-0 p-input-icon-left">
+                            <label for="">Fecha Inicio: </label>
+                            <p-calendar showIcon="true" [(ngModel)]="date_start" ngDefaultControl [showTime]="true" inputId="time" name="date_start"></p-calendar>
+                              </span>
+                        <span class="block m-2 md:mt-0 p-input-icon-left">
+                            <label for="">Fecha Final : </label>
+                            <p-calendar showIcon="true" [(ngModel)]="date_finist" ngDefaultControl  [showTime]="true" inputId="time" name="date_finist"></p-calendar>
+                         </span>
+                        <span class="block m-2 md:mt-0 p-input-icon-left">
+                            <p-dropdown 
+                            optionLabel="displayLabel"
+                             [options]="clientList!" [(ngModel)]="user_id" name="user_id" id="documentType" placeholder="Selecciona un cliente" [showClear]="true">
+                                <ng-template let-client pTemplate="item">
+                                    <span>{{client.firstName }} {{client.firstLastName}} </span>
+                                </ng-template>
+                            </p-dropdown>
+                        </span>
+                        <span class="block m-2 md:mt-0 p-input-icon-left">
+                            <button pButton (click)="getListService()" pRipple label="Buscar" icon="pi pi-search" class="p-button-success"></button>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="Fecha Servicio">Fecha Servicio <p-sortIcon field="Fecha Servicio"></p-sortIcon></th>
+                        <th pSortableColumn="Servicio">Servicio <p-sortIcon field="Servicio"></p-sortIcon></th>
+                        <th pSortableColumn="statusType">Estado <p-sortIcon field="statusType"></p-sortIcon></th>
+                        <th pSortableColumn="Empresa">Empresa <p-sortIcon field="Empresa"></p-sortIcon></th>
+                        <th pSortableColumn="Modo">Modo  <p-sortIcon field="Modo"></p-sortIcon></th>
+                        <th pSortableColumn="Móvil">Móvil <p-sortIcon field="Móvil"></p-sortIcon></th>
+                        <th pSortableColumn="Cliente">Cliente <p-sortIcon field="Cliente"></p-sortIcon></th>
+                        <th pSortableColumn="tipoPago">Tipo Pago <p-sortIcon field="tipoPago"></p-sortIcon></th>
+                        <th pSortableColumn="Total">Total <p-sortIcon field="Total"></p-sortIcon></th>
+                        <th pSortableColumn="Origen">Origen <p-sortIcon field="Origen"></p-sortIcon></th>
+                        <th pSortableColumn="Zona">Zona <p-sortIcon field="Zona"></p-sortIcon></th>
+
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                        </td>
+                        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Fecha Servicio</span>
+                            {{product.serviceDateTime}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Servicio</span>
+                            {{product.serviceId}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Estado</span>
+                            {{product.statusType}}
+                        </td>
+                        <td style="width:14%; min-width:8rem;">
+                            <span class="p-column-title">Empresa</span>
+                            {{product.company }}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Modo</span>
+                            {{product.mode}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Móvil</span>
+                            {{product.vehicle}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Cliente</span>
+                            {{product.client}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Tipo Pago</span>
+                            {{product.paymentType}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Total</span>
+                            {{product.total}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Origen</span>
+                            {{product.origin}}
+                        </td>
+                        <td style="width:14%; min-width:10rem;">
+                            <span class="p-column-title">Zona</span>
+                            {{product.zone}}
+                        </td>
+               
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
+            <ng-template pTemplate="content">
+                <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" pInputText id="name" [(ngModel)]="product.name" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !product.name}"/>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !product.name">Name is required.</small>
+                </div>
+                <div class="field">
+                    <label for="description">Description</label>
+                    <textarea id="description" pInputTextarea [(ngModel)]="product.description" required rows="3" cols="20"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="status">Inventory Status</label>
+                    <p-dropdown id="status" [options]="statuses" optionLabel="label" [(ngModel)]="product.inventoryStatus" placeholder="Select a Status">
+                        <ng-template pTemplate="selectedItem">
+                            <span *ngIf="product && product.inventoryStatus" [class]="'product-badge status-' + product.inventoryStatus.value">{{product.inventoryStatus.label}}</span>
+                        </ng-template>
+                        <ng-template let-status pTemplate="status">
+                            <span [class]="'product-badge status-' + status.value.toLowerCase()">{{status.label}}</span>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+
+                <div class="field">
+                    <label class="mb-3">Category</label>
+                    <div class="formgrid grid">
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="product.category"></p-radioButton>
+                            <label for="category1">Accessories</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="product.category"></p-radioButton>
+                            <label for="category2">Clothing</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="product.category"></p-radioButton>
+                            <label for="category3">Electronics</label>
+                        </div>
+                        <div class="field-radiobutton col-6">
+                            <p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="product.category"></p-radioButton>
+                            <label for="category4">Fitness</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="price">Price</label>
+                        <p-inputNumber id="price" [(ngModel)]="product.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+                    </div>
+                    <div class="field col">
+                        <label for="quantity">Quantity</label>
+                        <p-inputNumber id="quantity" [(ngModel)]="product.quantity"></p-inputNumber>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+                <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteProductDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span *ngIf="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog [(visible)]="deleteProductsDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+                <span>Are you sure you want to delete selected products?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductsDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>

@@ -1,0 +1,270 @@
+<div *ngFor="let destino of destinations; index as i">
+
+    <div class="row mb-2">
+        <div class="col-12 mb-1">
+            <hr>
+        </div>
+    </div>
+
+    <div *ngIf="i == 0" class="row mb-2">
+        <div class=" col-lg-2 col-12 padding-bottom margin-top-lbl">
+            <b>{{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Origen' | translate }}: </b>
+        </div>
+        <div class=" col-lg-6 col-12 padding-bottom">
+            <nexus-input-geo-autocomplete *ngIf="!inputOriginEdit" [placeHolder]="placeHolderDirOrigen" [searchJson]="coberturePosition"
+                [findInit]="destino.origin?.addressMainText!" [latInit]="destino.origin?.latitude!"
+                [lngInit]="destino.origin?.longitude!" (onChange)="onchangeGeo($event, i, true)" [favoritos]="false"
+                [lstFavoritos]="lstFavoritos" [clientId]="clientId" [companyId]="companyId"
+                (onChangeFavoritos)="onChangeFavoritosEmit()">
+            </nexus-input-geo-autocomplete>
+            <input *ngIf="inputOriginEdit" type="text" placeholder="Origen" [(ngModel)]="destino.origin!.addressMainText!" class="form-control background-input">
+        </div>
+        <div class="col-lg-1 col-12 padding-bottom">
+            <button *ngIf="destino && destino.origin && destino.origin.addressMainText && destino.origin.addressMainText.length > 0 && (!nroViaje|| nroViaje<= 0)" tabindex="1" type="button"
+                class="btn btn-secondary btn-Destino" style="height: 36px;" 
+                (click)="btnEditOrigin(true)"
+                title="Edit Origin">
+                <svg class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path 
+                        d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 
+                        83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 
+                        90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 
+                        8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 
+                        48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"
+                        class="edit-direction">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class=" col-lg-3 col-12 padding-bottom margin-top-lbl">
+            <b placeholder="Zona Origen">
+                {{destino.origin?.zoneDescription}}
+            </b>
+        </div>
+        <div class=" col-lg-2 col-12 padding-bottom  aling-text">
+            <b>{{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_OReferencia' | translate }}: </b>
+        </div>
+        <div class=" col-lg-10 col-12 padding-bottom">
+            <input type="text" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_OReferencia' | translate }}"
+                [(ngModel)]="destino.origin!.reference!" class="form-control">
+        </div>
+
+        <div class="col-12 mb-1">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row mb-2" *ngIf="!flagSinDireccion">
+        <div class=" col-lg-2 col-12 padding-bottom margin-top-lbl">
+            <b>{{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_DirDestino' | translate }}: </b>
+        </div>
+        <div class="col-lg-6 col-12 padding-bottom">
+            <nexus-input-geo-autocomplete *ngIf="!inputDestinationEdit" [placeHolder]="placeHolderDirDestino" [searchJson]="coberturePosition"
+                [findInit]="destino.destination?.addressMainText!" [latInit]="destino.destination?.latitude!"
+                [lngInit]="destino.destination?.longitude!" (onChange)="onchangeGeo($event, i)" [favoritos]="false"
+                [lstFavoritos]="lstFavoritos" [clientId]="clientId" [companyId]="companyId"
+                (onChangeFavoritos)="onChangeFavoritosEmit()">
+            </nexus-input-geo-autocomplete>
+            <input *ngIf="inputDestinationEdit" type="text" placeholder="Destino" [(ngModel)]="destino.destination!.addressMainText!" class="form-control background-input">
+        </div>
+        <div class="col-lg-1 col-12 padding-bottom">
+            <button *ngIf="destino && destino.destination && destino.destination.addressMainText && destino.destination.addressMainText.length > 0 && (!nroViaje|| nroViaje<= 0)" tabindex="1" type="button"
+                class="btn btn-secondary btn-Destino" style="height: 36px;" 
+                (click)="btnEditOrigin(false)"
+                title="Edit Destination">
+                <svg class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path 
+                        d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 
+                        83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 
+                        90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 
+                        8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 
+                        48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"
+                        class="edit-direction">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class=" col-lg-3 col-12 padding-bottom margin-top-lbl">
+            <b placeholder="Zona">
+                {{destino.destination?.zoneDescription!}}
+            </b>
+        </div>
+
+        <!--Referencia-->
+        <div class=" col-lg-2 col-12 padding-bottom  aling-text">
+            <b>{{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_DReferencia' | translate }}: </b>
+        </div>
+        <div class=" col-lg-10 col-12 padding-bottom">
+            <input type="text" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_DReferencia' | translate }}"
+                [(ngModel)]="destino.destination!.reference!" class="form-control">
+        </div>
+
+        <!-- Mas detalle -->
+        <div class="col-lg-3 col-12" *ngIf="flagHavePermission('EVENT_MORE_DETAILS')">
+            <div class="float-right">
+                <div *ngIf="!destino.frontShowInfoDestino">
+                    <span> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_MasDetalle' | translate }} </span>
+                    <button tabindex="1" (click)="destino.frontShowInfoDestino = !destino.frontShowInfoDestino" type="button"
+                        class="btn btn-info btn-Destino">
+                        <svg width="100%" height="100%" viewBox="0 0 30 30" version="1.1" xml:space="preserve">
+                            <path
+                                d="M14.971,3.001c-1.094,0.016 -1.981,0.928 -1.966,2.022l0,7.981l-7.981,0c-0.01,0 -0.019,0 -0.029,0c-1.094,0 -1.995,0.901 -1.995,1.996c0,1.094 0.901,1.995 1.995,1.995c0.01,0 0.019,0 0.029,0l7.981,0l0,7.981c0,0.009 0,0.019 0,0.028c0,1.095 0.9,1.996 1.995,1.996c1.095,0 1.995,-0.901 1.995,-1.996c0,-0.009 0,-0.019 0,-0.028l0,-7.981l7.981,0c0.01,0 0.019,0 0.029,0c1.094,0 1.995,-0.901 1.995,-1.995c0,-1.095 -0.901,-1.996 -1.995,-1.996c-0.01,0 -0.019,0 -0.029,0l-7.981,0l0,-7.981c0,-0.009 0,-0.018 0,-0.027c0,-1.095 -0.9,-1.996 -1.995,-1.996c-0.01,0 -0.019,0.001 -0.029,0.001l0,0Z"
+                                class="fill-white" />
+                        </svg>
+                    </button> 
+                </div>
+                <div *ngIf="destino.frontShowInfoDestino">
+                    <span> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_MenosDetalle' | translate }} </span>
+                    <button tabindex="1" (click)="destino.frontShowInfoDestino = !destino.frontShowInfoDestino" type="button"
+                        class="btn btn-info btn-Destino">
+                        <svg width="95%" height="95%" viewBox="0 0 30 30" version="1.1" xml:space="preserve"
+                            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                            <g transform="matrix(0.997632,0,0,0.997632,0.0355219,0.0355219)">
+                                <path class="fill-white"
+                                    d="M5,13C4.991,13 4.981,13 4.972,13C3.874,13 2.972,13.903 2.972,15C2.972,16.097 3.874,17 4.972,17C4.981,17 4.991,17 5,17L25,17C25.009,17 25.019,17 25.028,17C26.126,17 27.028,16.097 27.028,15C27.028,13.903 26.126,13 25.028,13C25.019,13 25.009,13 25,13L5,13Z" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="!flagSinDireccion && destino.frontShowInfoDestino" class="show-Info-destino">
+        <div class="row mb-2">
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Total' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b> {{destino.frontTotalViaje}} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_TiempoEspera' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_Total' | translate }}"
+                    [(ngModel)]="destino.timeWait" class="form-control">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_CostoEspera' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="number" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_Total' | translate }}"
+                    [(ngModel)]="destino.totalWait" class="form-control"
+                    (change)="destino.frontTotalViaje = destino.totalWait! + destino.costDestination!">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Km' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_Total' | translate }}"
+                    [(ngModel)]="destino.kilometres" class="form-control">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom aling-text">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Tarifa' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="number" placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_Total' | translate }}"
+                    [(ngModel)]="destino.costDestination" class="form-control"
+                    (change)="destino.frontTotalViaje = destino.totalWait! + destino.costDestination!">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-12 padding-bottom">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Asignacion' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" class="form-control" name="fechaAsignacion" disabled
+                    title="{{ 'SOLICITAR_SERVICIO_COMPONENT.title_FAsignacion' | translate }}" class="form-control"
+                    placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_FAsignacion' | translate }}"
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [(ngModel)]="destino.dateAssignment">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="time" class="form-control" [(ngModel)]="destino.frontDateAssignment" disabled>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Leido' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" class="form-control" name="fechaLeido" disabled
+                    title="{{ 'SOLICITAR_SERVICIO_COMPONENT.title_FLeido' | translate }}" class="form-control"
+                    placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_FLeido' | translate }}"
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [(ngModel)]="destino.dateReading">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="time" class="form-control" [(ngModel)]="destino.frontDateReading" disabled>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Contacto' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" class="form-control" name="fechaContacto" disabled
+                    title="{{ 'SOLICITAR_SERVICIO_COMPONENT.title_FContacto' | translate }}" class="form-control"
+                    placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_FContacto' | translate }}"
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [(ngModel)]="destino.dateContact">
+            </div>
+            <div class="col-lg-2 vcol-12 padding-bottom">
+                <input type="time" class="form-control" [(ngModel)]="destino.frontDateContact" disabled>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Inicio' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" class="form-control" name="fechaInicio" disabled
+                    title="{{ 'SOLICITAR_SERVICIO_COMPONENT.title_FInicio' | translate }}" class="form-control"
+                    placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_FInicio' | translate }}"
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [(ngModel)]="destino.dateStart">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="time" class="form-control" [(ngModel)]="destino.frontDateStart" disabled>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <b class="float-right"> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_Termino' | translate }} </b>
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="text" class="form-control" name="fechaFin" disabled
+                    title="{{ 'SOLICITAR_SERVICIO_COMPONENT.title_FFin' | translate }}" class="form-control"
+                    placeholder="{{ 'SOLICITAR_SERVICIO_COMPONENT.plh_FFin' | translate }}"
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [(ngModel)]="destino.dateEnd">
+            </div>
+            <div class="col-lg-2 col-12 padding-bottom">
+                <input type="time" class="form-control" [(ngModel)]="destino.frontDateEnd" disabled>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-container *ngIf="flagHavePermission('EVENT_MANAGE_DESTINATION') && !flagSinDireccion">
+    <div class="row mb-2">
+        <div class="col-12 mb-1">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button tabindex="1" *ngIf="destinations?.length! > 1"
+                (click)="quitarDestino(this.destinations?.length!-1, 'D'+this.destinations?.length!)" type="button"
+                class="btn btn-primary btn-quitar-Destino float-left">
+                <svg width="95%" height="95%" viewBox="0 0 30 30" version="1.1" xml:space="preserve"
+                    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                    <g transform="matrix(0.997632,0,0,0.997632,0.0355219,0.0355219)">
+                        <path class="fill-white"
+                            d="M5,13C4.991,13 4.981,13 4.972,13C3.874,13 2.972,13.903 2.972,15C2.972,16.097 3.874,17 4.972,17C4.981,17 4.991,17 5,17L25,17C25.009,17 25.019,17 25.028,17C26.126,17 27.028,16.097 27.028,15C27.028,13.903 26.126,13 25.028,13C25.019,13 25.009,13 25,13L5,13Z" />
+                    </g>
+                </svg>
+            </button>
+            <div class="float-right">
+                <span> {{ 'SOLICITAR_SERVICIO_COMPONENT.lbl_AñadirDestinos' | translate }} </span>
+                <button tabindex="1" (click)="agregarDestino()" type="button" class="btn btn-primary btn-Destino ">
+                    <svg width="100%" height="100%" viewBox="0 0 30 30" version="1.1" xml:space="preserve">
+                        <path
+                            d="M14.971,3.001c-1.094,0.016 -1.981,0.928 -1.966,2.022l0,7.981l-7.981,0c-0.01,0 -0.019,0 -0.029,0c-1.094,0 -1.995,0.901 -1.995,1.996c0,1.094 0.901,1.995 1.995,1.995c0.01,0 0.019,0 0.029,0l7.981,0l0,7.981c0,0.009 0,0.019 0,0.028c0,1.095 0.9,1.996 1.995,1.996c1.095,0 1.995,-0.901 1.995,-1.996c0,-0.009 0,-0.019 0,-0.028l0,-7.981l7.981,0c0.01,0 0.019,0 0.029,0c1.094,0 1.995,-0.901 1.995,-1.995c0,-1.095 -0.901,-1.996 -1.995,-1.996c-0.01,0 -0.019,0 -0.029,0l-7.981,0l0,-7.981c0,-0.009 0,-0.018 0,-0.027c0,-1.095 -0.9,-1.996 -1.995,-1.996c-0.01,0 -0.019,0.001 -0.029,0.001l0,0Z"
+                            class="fill-white" /></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,12 @@
+.div-load {
+    background-color: #00000080;
+    justify-content: center;
+    display: flex;    
+    position: absolute;
+    z-index: 100;
+    align-items: center;
+
+    .spinner-icon{
+      max-height: 40px;
+    }
+  } 

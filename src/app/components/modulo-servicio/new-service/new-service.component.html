@@ -1,0 +1,259 @@
+<div class="grid">
+    <div class="col-12 md:col-4">
+        <div class="card">
+            <nexus-destinos-viaje-corporate [(destinations)]="viaje.destinations!" [cantPasajeros]="cantPasajeros"
+                [cantAutos]="txtCantidadMoviles" [coberturePosition]="coberturePosition"
+                (changePosition)="onChangePosition($event)" [companyId]="companyId" [flagSinDireccion]="false"
+                [lstFavoritos]="lstFavoritos" [clientId]=clientId [disablePoint]="false"
+                (onChangeFavoritos)="onChangeFavoritos()" [nroViaje]="nroViaje" [estadoViaje]="estadoViaje"
+                [cantDestination]="cantDestinations">
+            </nexus-destinos-viaje-corporate>
+        </div>
+
+        <!-- **********************************************  Tipo Servicio ********************************************** -->
+        <ng-container *ngIf="offers.offers">
+        <div class="grid p-fluid">
+        <div class="col-12">
+        <p-carousel [value]="offers.offers" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="carouselResponsiveOptions">
+            <ng-template let-item pTemplate="item">
+                    <div class="border-round m-2 text-center p-2" style="border: 1px solid var(--surface-d)">
+                        <div class="my-5">
+                            <i class="pi pi-car" style="font-size: 2rem"></i>
+                        </div>
+                        <div>
+                            <h6 class="mt-0 mb-3">{{item.serviceType.name}}</h6>
+                            <div class="my-5" >
+                                <p-radioButton name="viaje" value="{{item.serviceType.id}}" [(ngModel)]="viaje.serviceType.id" id="city1"></p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+        </div>
+        </ng-container>
+        <!-- <ng-container *ngIf="offers.offers">
+            <div class="card">
+                <h6 style="font-size: 15px;
+            font-weight: 700;">Seleccione un tipo de servicio</h6>
+                <p-dropdown [options]="offers.offers" optionLabel="serviceType.name" [(ngModel)]="viaje.serviceType.id">
+                </p-dropdown>
+            </div>
+        </ng-container> -->
+
+        <!-- **********************************************  Tipo Pago ********************************************** -->
+        <ng-container *ngIf="offers.offers">
+            <div class="grid p-fluid">
+            <div class="col-12">
+            <p-carousel [value]="offers.paymentAvailable" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="carouselResponsiveOptions">
+                <ng-template let-item pTemplate="item">
+                        <div class="border-round m-2 text-center p-2" style="border: 1px solid var(--surface-d)">
+                            <div class="my-5">
+                                <i class="pi pi-money-bill" style="font-size: 2rem"></i>
+                            </div>
+                            <div>
+                                <h6 class="mt-0 mb-3">{{item.name}}</h6>
+                                <div class="my-5" >
+                                    <p-radioButton name="viaje" value="{{item.id}}" [(ngModel)]="viaje.paymentType.id" id="city1"></p-radioButton>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </div>
+            </div>
+            </ng-container>
+
+        <!-- <ng-container *ngIf="offers.offers">
+            <div class="card">
+                <h6 style="font-size: 15px;font-weight: 700;">Seleccione un tipo de pago</h6>
+                <p-dropdown [options]="offers.paymentAvailable" optionLabel="name" [(ngModel)]="viaje.paymentType.id">
+                </p-dropdown>
+            </div>
+        </ng-container> -->
+
+        <!-- ========== Pedir para terceros ====== -->
+        <ng-container *ngIf="dataMaestra.companyClient.id != 1 ">
+            <div class="card">
+                <label style="font-size: 15px;font-weight: 700;" htmlFor="state">Pedir para tercero : </label>
+                <p-dropdown [options]="pedirTerceroJson" optionLabel="name" [(ngModel)]="pedirTercero"></p-dropdown>
+            </div>
+        </ng-container>
+
+        <div class="card" *ngIf="pedirTercero.id == 2 ">
+            <div nexus-input-autocomplete [mainTextOption]="true" [mainTextOptionLength]="3"
+                [placeHolder]="searchPersonal"
+                [bindLabel]="['firstName', 'firstLastName','secondLastName']"
+                [bindValue]="['firstName', 'firstLastName','secondLastName']" [structService]="structServiceArray"
+                [routeService]="sd_routeService" [searchJson]="sd_jsonSearch" [flagFocus]="true"
+                [(selectedValue)]="sd_lstDrivers" (onChange)="sd_onchange($event)" [multiple]="false">
+            </div>
+        </div>
+
+        <!-- ======== PEDIR TERCERO VISITA ========= -->
+        <ng-container *ngIf="pedirTercero.id == 1">
+            <div class="card">
+                <h5>Visita :</h5>
+                <div class="grid p-fluid">
+                    <div class="col-12 md:col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input type="text" pInputText placeholder="Nombre"  [(ngModel)]="sd_lstDrivers.firstName">
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input type="text" pInputText placeholder="Apellido Paterno"  [(ngModel)]="sd_lstDrivers.firstLastName">
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input type="text" pInputText placeholder="Apellido Materno"  [(ngModel)]="sd_lstDrivers.secondLastName">
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                            <input type="text" pInputText placeholder="Celular" [(ngModel)]="sd_lstDrivers.cellphone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </ng-container>
+        <!-- ================cost center================== -->
+        <div class="card">
+            <div class="field col-12">
+                <label style="font-size: 15px;font-weight: 700;" htmlFor="state">Centro de costo : </label>
+                <p-dropdown [options]="lstCentroCosto" optionLabel="codeName1" [(ngModel)]="viaje.costCenter!.id"
+                    class="m-2"></p-dropdown>
+            </div>
+        </div>
+        <!-- =================Dynamic Field ===========================-->
+        <div class="card">
+            <h6 style="font-size: 15px;font-weight: 700;">Campos dinámicos</h6>
+            <ng-container *ngFor="let item of lstDynamicControls">
+                <ng-container *ngIf="item.type == 'COMPANY_DYNAMICFIELD_TYPE_FIELD_OPEN'">
+                    <div class="field grid">
+                        <label>{{item.name}}:</label>
+                        <input pInputText id="name3" type="text" [(ngModel)]="item.value" class="m-2" />
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="item.type == 'COMPANY_DYNAMICFIELD_TYPE_FIELD_CLOSED'">
+                    <div class="field grid">
+                        <label>{{item.name}} :</label>
+                        <p-dropdown [options]="listaCampoDinamicoCerrado" optionLabel="value"  [(ngModel)]="item.value" class="m-2"></p-dropdown>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <!-- =======Reservas============= -->
+        <div class="p-fluid">
+            <div class="field grid">
+                <div class="col-12 md:col-12">
+                    <p-selectButton [options]="stateOptions" [(ngModel)]="viaje.immediate" optionLabel="label"
+                        optionValue="value"></p-selectButton>
+                </div>
+            </div>
+
+        </div>
+
+        <ng-container *ngIf="!viaje.immediate">
+            <div class="grid m-2">
+                <i class="pi pi-calendar m-2"></i>
+                <label for="" class="m-2">Fecha y Hora: </label>
+                <p-calendar [(ngModel)]="date7" [showTime]="true" inputId="time"></p-calendar>
+            </div>
+        </ng-container>
+        <!-- =====================boton de guardado===================== -->
+        <div class="col-12 save-button text-center ">
+            <p-toast key="tst" [baseZIndex]="99999"></p-toast>
+            <nexus-structured-button class="p-button-danger" [label]=" labelBtnSolicitarServicio"
+                [tittle]="labelBtnSolicitarServicio" [(value)]="value" [structService]="structServiceCode"
+                [routeService]="routeService" [validate]="validateViaje" (onChange)="btnStructGuardarViaje($event) "
+                (onValidate)="btnGuardarViajeValidationCorporate($event)"
+                [disabled]="disabled">
+            </nexus-structured-button>
+        </div>
+    </div>
+    <div class="col-12 md:col-8 container-map">
+        <nexus-informacion-mapa [idMap]="'MapModal-'+nroViaje" [coberturePosition]="coberturePosition"
+            [lstPosiciones]="lstPosiciones" (onChange)="onChangeMapMarkers($event)" [viewMetros]="true"
+            [metros]="viaje.distance" [viewPriceEstimate]="true" [priceEstimate]="viaje.totalService"
+            [lstCoordinateEncoded]="polilyneRuta">
+        </nexus-informacion-mapa>
+        <!-- <p-gmap [options]="options" [style]="{'width':'100%','height':'100vh'}" ></p-gmap> -->
+
+    </div>
+</div>
+
+
+
+<ng-template #templateSolicitar>
+    <div class="modal-body text-center">
+        <div class="col-lg-12 col-md-12 col-12 color-secondary text-primary">
+            <br>
+            <span class="spanText"
+                style="color: #111111;font-weight: 700;">{{'SOLICITAR_SERVICIO_COMPONENT.messagge_success' |
+                translate }}</span>
+        </div>
+        <div class="modal-footer text-center">
+            <button type="button" class="btn btn-primary" class="font-weight: 700;"
+                (click)="verServicios()">{{'SOLICITAR_SERVICIO_COMPONENT.label_see_service' | translate }}</button>
+            <!-- <button type="button" class="btn btn-secondary" (click)="pedirOtroServicio()">{{labelSolicitarServicio}}</button> -->
+        </div>
+    </div>
+</ng-template>
+<ng-template #templateSolicitarInmediato>
+    <div class="modal-body text-center">
+        <div [ngSwitch]="intFlagSearchCondcutor">
+            <h2 class="font-weight: 700;" *ngSwitchCase="0">Buscando conductores ...</h2>
+            <!-- <h2 *ngSwitchCase="2">Servicio aceptado </h2> -->
+            <h2 class="font-weight: 700;" *ngSwitchCase="33">Buscando conductores ...</h2>
+            <h2 class="font-weight: 700;" *ngSwitchCase="35">No se encontró conductor</h2>
+            <!-- <h2 *ngSwitchCase="3">Servicio aceptado</h2> -->
+        </div>
+        <div class="spinner-border" role="status" *ngIf="intFlagSearchCondcutor != 35">
+            <span class="sr-only" style="font-size: 30px;font-weight: 700;">Loading...</span>
+        </div>
+
+    </div>
+    <div class="modal-footer text-center">
+        <button type="button" *ngIf="flagVisualizarBotonCancelarServicio" class="btn btn-primary"
+            (click)="cancelService()">{{'SOLICITAR_SERVICIO_COMPONENT.lbl_cancel_Service' | translate }}</button>
+        <button type="button" *ngIf="flagVisualizarBotonAceptar" class="btn btn-primary"
+            (click)="verServicios()">Ver</button>
+        <button type="button" *ngIf="flagVisualizarBotonCancelar" class="btn btn-secondary"
+            (click)="cerrarModal()">Cerrar</button>
+    </div>
+</ng-template>
+
+<p-dialog [closable]="false" [(visible)]="flagSolicitudServicioInmediato" modal="modal" showEffect="fade" [style]="{width: '30vw'}" [breakpoints]="{'960px': '75vw'}">
+	<div class="grid">
+		<div class="col-12 md:col-12">
+            <p-progressBar  mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+            <div [ngSwitch]="intFlagSearchCondcutor">
+                <h2 class="font-weight: 700;" *ngSwitchCase="0">Buscando conductores ...</h2>
+                <!-- <h2 *ngSwitchCase="2">Servicio aceptado </h2> -->
+                <h2 class="font-weight: 700;" *ngSwitchCase="33">Buscando conductores ...</h2>
+                <h2 class="font-weight: 700;" *ngSwitchCase="35">No se encontró conductor</h2>
+                <!-- <h2 *ngSwitchCase="3">Servicio aceptado</h2> -->
+            </div>
+
+
+		</div>
+	</div>
+	<ng-template pTemplate="footer">
+			<p-toast key="tst" [baseZIndex]="99999"></p-toast>
+            <button class="p-button-outlined" pButton type="button" *ngIf="flagVisualizarBotonCancelarServicio" class="btn btn-primary"
+            (click)="cancelService()">Cancelar</button>
+            <button class="p-button-outlined" pButton type="button" *ngIf="flagVisualizarBotonAceptar" class="btn btn-primary"
+            (click)="verServicios()">Ver</button>
+            <button class="p-button-outlined" pButton type="button" *ngIf="flagVisualizarBotonCancelar" class="btn btn-secondary"
+            (click)="cerrarModal()">Cerrar</button>
+			<!-- <button pButton icon="pi pi-check" (click)="CancelService()" label="Ok" class="p-button-outlined"></button> -->
+	</ng-template>
+</p-dialog>

@@ -1,0 +1,20 @@
+<h4 class="modal-title shadow-text" style="width: 100%;">
+    <ng-container *ngIf="trip.id != undefined">
+        Viaje Nro. {{trip.id}} - {{colorBasedBrightness()}} -- {{searchColorStatusType()}}
+        <span [style.color]="colorBasedBrightness()" [ngStyle]="{'background': searchColorStatusType()}"
+            class="box-statusType">{{trip.statusType | json}}
+            <!-- {{trip.statusType?.id |
+            translateCode:undefined:trip.statusType?.name}} -->
+            </span>
+        <!-- <span *ngIf="viaje.statusType?.description">({{viaje.statusType?.description}})</span>
+        <span *ngIf="viaje.totalService"> --- {{viaje.currencyType?.symbol}} {{viaje.totalService}} </span> -->
+    </ng-container>
+    <ng-container *ngIf="trip.id == undefined">
+        Nuevo Viaje
+    </ng-container>
+    <!-- <label class="text-primary position-modo-reserva">{{viaje.modeReserve?.name}}</label> -->
+    <button *ngIf="mt_header_showClose" type="button" class="close" style="margin-left: 0px;" aria-label="Close"
+        (click)="activeModal.close('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</h4>

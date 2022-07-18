@@ -1,0 +1,10 @@
+<container-element [ngSwitch]="typeView">
+    <ng-container *ngSwitchCase="getTypeViewStepEnunValue()">
+        <app-ng-step [listaTabs]="listaTabs"></app-ng-step>
+    </ng-container>
+    <ng-container *ngSwitchCase="getTypeViewNavEnunValue()">
+        <nexus-ng-nav [listaTabs]="listaTabs"></nexus-ng-nav>
+    </ng-container>
+</container-element>
+
+<router-outlet></router-outlet>

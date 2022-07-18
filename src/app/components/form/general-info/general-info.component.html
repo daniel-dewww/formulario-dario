@@ -1,0 +1,105 @@
+<div class="grid" style="justify-content:center;align-items:center;margin-top: 30px;">
+	<div class="card p-fluid">
+		<h5>General Info</h5>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Name</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+			<div class="field col">
+				<label htmlFor="email2">Surnames</label>
+				<input pInputText id="email2" type="text" />
+			</div>  
+		</div>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Adress</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+			<div class="field col">
+				<label htmlFor="email2">Other decision makers</label>
+				<input pInputText id="email2" type="text" />
+			</div>
+		</div>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<div class="p-field-checkbox ">
+					<label class="m-2" for="binary">Do you have children?</label>
+					<p-checkbox name="groupname" [(ngModel)]="checkedChildren"></p-checkbox>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<label class="m-2" for="binary">Home Phone:</label>
+				<p-inputNumber inputId="integeronly" [(ngModel)]="phoneHome">
+				</p-inputNumber>
+			</div>
+			<div class="field col">
+				<label class="m-2" for="binary">Cell Phone:</label>
+				<p-inputNumber inputId="integeronly" [(ngModel)]="phoneCell">
+				</p-inputNumber>
+			</div>
+		</div>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Email </label>
+				<input pInputText id="name2" type="text" />
+			</div>
+			<div class="field col">
+				<label htmlFor="email2">Email 2 </label>
+				<input pInputText id="email2" type="text" />
+			</div>
+		</div>
+		<div class="p-formgrid grid">
+			<div class="field col">
+				<div class="p-field-checkbox ">
+					<label class="m-2" for="binary"> Do you need to sell a property before you can purchase?</label>
+					<label for="" class="ml-2">Yes</label>
+					<p-checkbox name="groupname" [(ngModel)]="checkedChildren"></p-checkbox>
+					<label for="" class="ml-2">No</label>
+					<p-checkbox name="groupname" [(ngModel)]="checkedChildren"></p-checkbox>
+				</div>
+
+			</div>
+
+		</div>
+        <div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2"> How soon do you want/need to be in a new home?</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+		</div>
+        <div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Are ou interested in a new home a resale home or both?</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+		</div>
+        <div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Are you currently working wih another real estate agent?</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+		</div>
+        <div class="p-formgrid grid">
+			<div class="field col">
+				<label htmlFor="name2">Are you in an exclusive buyer agency contract with another agent?</label>
+				<input pInputText id="name2" type="text" />
+			</div>
+		</div>
+        <!-- button -->
+		<div class="p-formgrid grid">
+            
+			<div class="field col">
+			</div>
+			<div class="field col">
+				<p-button [routerLink]="['/form/new-home']" label="Next" icon="pi pi-check" iconPos="left"></p-button>
+			</div>
+
+		</div>
+	</div>
+
+</div>

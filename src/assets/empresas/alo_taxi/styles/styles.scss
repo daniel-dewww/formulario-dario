@@ -1,0 +1,29 @@
+
+:root { //actualizar valores de hoja de estilos variables
+    --variable-Empresa: #EF494D;
+    --variable-Empresa-soft: rgba(222, 86, 89, 0.72);
+    --variable-Empresa-super-soft: rgba(239, 73, 77, 0.25);
+    --variable-fill-icon: rgba(239, 73, 77, 0.25);
+    --contraste-Empresa: #ffffff
+}
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "../../../../../node_modules/ngx-toastr/toastr.css"; // estilo de toast
+
+@import "../../../../../src/assets/fonts/linea/styles.css";
+@import "../../../../../src/assets/fonts/data-table/icons.css";
+
+@import "../../../../../src/assets/styles/scss/mixins/material-palette";
+@import "../../../../../src/assets/styles/scss/mixins/skinning";
+
+@import "./variables";
+
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../../../src/assets/styles/scss/theming";
+@import "../../../../../src/assets/styles/scss/custom-bootstrap";
+@import "../../../../../src/assets/styles/scss/core";
+@import "../../../../../src/assets/styles/scss/switch.scss";
+
+@import  "../../../../../src/assets/styles/app.scss";
+@import  "../../../../../src/assets/styles/scss/inputGroupIcons";
+

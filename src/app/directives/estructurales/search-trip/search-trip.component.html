@@ -1,0 +1,88 @@
+<div class="accordion-body container-group-body">
+    <form [formGroup]="busquedaViajeForm" (ngSubmit)="onSubmit()">
+        <div class="row" *ngIf="rowSelect">
+            <div class="col-lg-4 col-md-3 col-12" *ngIf="typeSearch">
+                <div class="input-group mb-3">
+                    <select class="form-control" name="tipoBusqueda" formControlName="tipoBusqueda">
+                        <option [ngValue]="-1" selected="selected">{{ 'STANDARD_NAMES.cmb_TipoBusqueda' | translate }}</option>
+                        <option [ngValue]="1">Viaje</option>
+                        <option [ngValue]="2">Movil</option>
+                        <option [ngValue]="3">Conductores</option>
+                        <option [ngValue]="4">Usuario</option>
+                        <option [ngValue]="5">Empresa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-12" *ngIf="typeSearch">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="busqueda"
+                        placeholder="{{ 'SEARCH_ACCORDION.plh_TipoBusqueda' | translate }}" formControlName="busqueda"
+                        title="{{ 'SEARCH_ACCORDION.tittle_Busqueda' | translate }}">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-12" *ngIf="statusTrip">
+                <div class="input-group mb-3">
+                    <select class="form-control" name="estadoViaje" formControlName="estadoViaje"
+                        title="{{ 'STANDARD_NAMES.tittle_EstadoViaje' | translate }}">
+                        <option [ngValue]="-1" selected="selected">{{ 'STANDARD_NAMES.cmb_EstadoViaje' | translate }}</option>
+                        <option [ngValue]="sel.id" *ngFor="let sel of dataMaestra.statusTypeService">                            
+                            {{sel.id | translateCode:translate.currentLang:'STATUS_TYPES_SERVICE':sel.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="dateSearch">
+            <div class="col-lg-6 col-md-3 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <b>{{ 'SEARCH_ACCORDION.lbl_FechaInicio' | translate }}:</b>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="fechaInicio"
+                                formControlName="fechaInicio" title="{{ 'SEARCH_ACCORDION.lbl_FechaInicio' | translate }}" class="form-control"
+                                placeholder="Filtrar desde" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="input-group mb-3">
+                            <input type="time" class="form-control" name="horaInicio"
+                                formControlName="horaInicio" name="hora Inicio" min="00:00" max="23:59:59">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-3 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <b>{{ 'SEARCH_ACCORDION.lbl_FechaFin' | translate }}:</b>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="fechaFin" formControlName="fechaFin"
+                                title="{{ 'SEARCH_ACCORDION.lbl_FechaFin' | translate }}" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" placeholder="Filtrar por hasta" bsDatepicker>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="input-group mb-3">
+                            <input type="time" class="form-control" name="horaFin" formControlName="horaFin"
+                                name="Hora Fin" min="00:00" max="23:59:59">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary float-right" (click)="btnBuscarFiltros()" [disabled]="busquedaViajeForm.invalid">
+                    <span>
+                        {{ 'SEARCH_ACCORDION.btn_Buscar' | translate }}
+                    </span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

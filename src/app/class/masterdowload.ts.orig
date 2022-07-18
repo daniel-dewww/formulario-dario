@@ -1,0 +1,57 @@
+import { Coverage } from './coverages';
+import { CurrencyType } from './currencyType';
+import { DocumentType } from './documentType';
+import { Parameter } from './parameter';
+import { PaymentType } from './paymentType';
+import { ServiceType } from './serviceType';
+import { StatusType } from './statusType';
+import { Turn } from './turn';
+import { TypeReceipts } from './typeReceipt';
+import { TypeZones } from './typeZone';
+import { User } from './user';
+import { ModeReserve } from './modeReserve';
+import { Vehicle } from './vehicle';
+import { Gender } from './gender';
+<<<<<<< HEAD
+import { Permission } from './class-directive/permission';
+=======
+import { Menu } from '../core/menu/menu.service';
+>>>>>>> 0b0d3143f41718dd3f3b6afb0fd20eb8acc15c67
+
+export class CourrentUser{
+    user?:string;
+    user_uuid?: string;
+}
+
+export class RequestMasterdowload {
+    activo?: number;
+    user_uuid?: string;
+}
+
+export class Masterdowload {
+    // code?: string;
+    // secondLastName?: string
+
+    coverages?: Coverage[];
+    currencyTypes?: CurrencyType[];
+    documentTypes?: DocumentType[];
+    genders?: Gender[];
+    parameters?: Parameter[];
+    paymentTypes?: PaymentType[];
+    serviceTypes?: ServiceType[];
+    statusTypeService?: StatusType[];
+    statusTypeDriver?: StatusType[];
+    turns?: Turn[];
+    typeReceipts?: TypeReceipts[];
+    typeZones?: TypeZones[];
+    modeReserves?: ModeReserve[];
+    vehicleTypes?: Vehicle[];
+    user?: User;
+    vehicleAttributes? : any[];
+<<<<<<< HEAD
+    permissions?: any[];
+=======
+
+    menus?: Menu[]
+>>>>>>> 0b0d3143f41718dd3f3b6afb0fd20eb8acc15c67
+}

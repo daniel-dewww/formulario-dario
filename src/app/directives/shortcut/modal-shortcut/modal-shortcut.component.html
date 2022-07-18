@@ -1,0 +1,59 @@
+<!-- DISEÑO GUARDADO PARA BUSCADOR DE MENU -->
+<!-- <div class="modal-body">
+    <div class="row">
+        <div class="col-md-11 col-12">
+            <form [formGroup]="reasonsOptionsForm"  (ngSubmit)="onSubmit()">
+                <input class="form-control search" type="text" placeholder="Search"
+                aria-label="Search" formControlName="idReason" name="idReason" (keyup.enter)="requestService()">
+            </form>
+        </div>
+        <div class="col-md-1 col-12 fa-icon">
+            <a class="fas fa-search" aria-hidden="true" (click)="requestService()"></a>
+        </div>
+    </div>
+</div> -->
+<!-- FIN DISEÑO GUARDADO PARA BUSCADOR DE MENU -->
+
+<div class="modal-header">
+    <h4 class="modal-title"> {{headerModal | translate}} </h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div  class="modal-body">
+    <div  id="reasonsOptions" class="optionsReasons">
+        <div>
+            <form [formGroup]="reasonsOptionsForm"  (ngSubmit)="onSubmit()">
+                <div *ngIf="typeForm.editForm" class="row">
+                    <div class="col-md-5 col-12">
+                        <b>{{lbl_Options | translate}}</b>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="input-group mb-3">
+                            <input nexusSoloNumerosEnteros="true" type="text" class="form-control" formControlName="idReason" name="idReason" (keyup.enter)="requestService()">
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="typeForm.searchForm" class="row">
+                    <div class="col-12">
+                        <nexus-search-trip 
+                            (btnBuscar)="busquedaViajes($event)" 
+                            [rowSelect]="rowSelect" 
+                            [typeSearch]="typeSearch" 
+                            [statusTrip]="statusTrip" 
+                            [dateSearch]="dateSearch">
+                        </nexus-search-trip>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer" *ngIf="showButton">
+    <button type="submit" 
+    class="btn btn-primary" 
+    (click)="requestService()">
+    {{btn_Options | translate}}
+    </button>
+</div>

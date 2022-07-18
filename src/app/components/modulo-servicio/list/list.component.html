@@ -1,0 +1,133 @@
+
+
+<div class="grid" *ngIf="viaje.length > 0;else SinServicios">
+	<div class="col-12 md:col-4">
+		<h5>Servicios activos</h5>
+		<p-accordion (onClose)="onTabClose($event)" (onOpen)="onTabOpen($event)">
+			<p-accordionTab  (click)="changeService(item,flagAccordion)" header="Viaje: {{item.shortId}}" [selected]="true" *ngFor="let item of viaje;index as i"
+				[(selected)]="activeState[i]">
+				<div class="grid">
+					<div class="col-12 md:col-9 lg:col-9">
+						<div style="display: flex;justify-content: start;" class="mb-2 ml-1">
+							<label for="">{{item.serviceType.name}}</label>
+						</div>
+						<div style="display: flex;justify-content: start;" class="mb-2">
+							<i class="pi pi-calendar ml-1" style="display: flex;align-items: center;"></i>
+							<label class="ml-2" for="">{{item.serviceDateTime | date}}</label>
+						</div>
+						<div style="display: flex;justify-content: start;" class="mb-2">
+							<img class=""
+								src="http://alotaxi.nexusvirtual.net/intranet-test/assets/empresas/alo_taxi/img/busqueda/origen.png"
+								width="20">
+							<label for="">{{item.pickup.mainText}}, {{item.pickup.secondaryText}} </label>
+						</div>
+						<div style="display: flex;justify-content: start;" class="mb-2"
+							*ngFor="let destino of item.destinations">
+							<img class="search-img-origin marker"
+								src="http://alotaxi.nexusvirtual.net/intranet-test/assets/empresas/alo_taxi/img/busqueda/destino.png"
+								width="20">
+							<label for="">{{destino.mainText}}, {{destino.secondaryText}} </label>
+						</div>
+
+					</div>
+					<div class="col-12 md:col-3 lg:col-3">
+						<div style="display: flex;justify-content: end;">
+							<label for="">{{item.currencyType.symbol}} {{item.price}}</label>
+						</div>
+						<div style="display: flex;justify-content: end;">
+							<span for="" class="p-button-plain"
+								style="color: grey !important">{{item.statusType.name}}</span>
+						</div>
+
+					</div>	
+				</div>
+				<br>	
+				<ng-container *ngIf="item.passenger![0].clientId != dataMaestra.user?.id">
+					<div class="grid">
+						<h5>Datos del pasajero: </h5>
+					</div>	
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-user m-2"></i>
+						<label for="firstname3" class="col-fixed">Nombre Completo:</label>
+						<div class="col">
+							<label for="firstname2">{{ item.passenger![0].firstName! }} {{ item.passenger![0].firstLastName!}} </label>
+						</div>
+					</div>
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-phone m-2"></i>
+						<label for="lastname2" class="col-fixed">Teléfono:</label>
+						<div class="col">
+							<label for="firstname2">{{ item.passenger![0].cellPhone! }} </label>
+						</div>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="item.driver">
+					<div class="grid">
+						<h5>Datos del conductor: </h5>
+					</div>	
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-user m-2"></i>
+						<label for="firstname3" class="col-fixed">Nombre Completo:</label>
+						<div class="col">
+							<label for="firstname2">
+								{{ item.driver.firstName! }} {{ item.driver.firstLastName!}} {{ item.driver.secondLastName!}}
+							 </label>
+						</div>
+					</div>
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-phone m-2"></i>
+						<label for="lastname2" class="col-fixed">Teléfono:</label>
+						<div class="col">
+							<label for="firstname2">      {{ item.driver.phoneNumber! }}</label>
+						</div>
+					</div>
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-phone m-2"></i>
+						<label for="lastname2" class="col-fixed">Móvil:</label>
+						<div class="col">
+							<label for="firstname2">  {{ item.vehicle.make! }}   {{ item.vehicle.model! }} </label>
+						</div>
+					</div>
+					<div class="grid col-12 md:col-12 lg:col-12">
+						<i class="pi pi-phone m-2"></i>
+						<label for="lastname2" class="col-fixed">Placa:</label>
+						<div class="col">
+							<label for="firstname2"> {{ item.vehicle.licensePlate! }}	</label>
+						</div>
+					</div>
+				</ng-container>
+					<div style="display: flex;justify-content: end;align-items: end;">
+						<button (click)="btnCancelViaje(item)" pButton pRipple type="button" label="Cancelar"
+							class="p-button-danger mr-2 mb-2"></button>
+					</div>
+			
+			</p-accordionTab>
+		</p-accordion>
+
+	</div>
+	<div class="col-12 md:col-8 container-map">
+		<nexus-informacion-mapa [idMap]="'Map-'" [lstPosiciones]="lstPosiciones">
+		</nexus-informacion-mapa>
+	</div>
+</div>
+<ng-template #SinServicios>
+	<h1>Usted no cuenta con servicios activos</h1>
+</ng-template>
+
+
+<p-dialog header="Viaje: {{viajeCancelar.shortId}}" [(visible)]="display" modal="modal" showEffect="fade" [style]="{width: '30vw'}" [breakpoints]="{'960px': '75vw'}">
+	<div class="grid">
+		<div class="col-12 md:col-12">
+			<!-- <pre>{{valueReasonCancelServiceOption | json }}</pre> -->
+				<p-listbox [options]="lstOptions" [(ngModel)]="valueReasonCancelServiceOption">
+					<ng-template pTemplate="body" let-item>
+							<div>{{item.description}}</div>
+					</ng-template>			
+				</p-listbox>
+		</div>
+	</div>
+	<ng-template pTemplate="footer">
+			<p-toast key="tst" [baseZIndex]="99999"></p-toast>
+			<button pButton icon="pi pi-check" (click)="CancelService()" label="Ok" class="p-button-outlined"></button>
+	</ng-template>
+</p-dialog>

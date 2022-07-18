@@ -1,0 +1,17 @@
+<div ngbDropdown class="btn-group" style="height: 38px; width: 100%">
+    <button tabindex="1" style="width: 80%; color: black;" class="btn btn-outline-secondary dropdown-toggle  form-control" ngbDropdownToggle>
+        +{{value}}
+    </button>
+    <div ngbDropdownMenu>
+        <button ngbDropdownItem tabindex="1"
+            *ngFor="let country of codeCountry"
+            (click)="setPrefijo(country)">
+            <span>
+                <figure style="width: 35px; height: 20px; padding-left: 10px; position: absolute;  padding: 0px;">
+                    <img src="assets/country/{{country.code}}.png" class="codeCountry">
+                </figure>
+            </span>
+            <a class="dropdown-item" style="padding-left: 40px;">+{{country.dial_code}}</a>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+<div style="font-weight: 700;" nexus-input-autocomplete [readonly]="disablePoint" 
+[bindLabel]=" bindLabel " 
+[bindValue]="bindValue " 
+[structService]="structService "
+ [routeService]="routeService "
+  [findInit]="findInit " 
+  [(selectedValue)]="valorSeleccionado "
+   [placeHolder]="placeHolder" 
+    [multiple]="false " [searchJson]="searchJson " 
+    [mainTextOption]="true " 
+    (onChange)="onchange($event)"
+    [lstValoresAdicionales]="lstFavoritos ">
+</div>
+
+<div class="margin-left-10 margin-top text-primary " 
+*ngIf="favoritos && seleccionoValor " 
+(click)="serviceEliminarAgregarFavorito(eliminarFavorito) ">
+    <i class="cursor-pointer "
+     [ngClass]="eliminarFavorito ? 'fa fa-trash': 'fa fa-plus' "></i>
+    <span *ngIf=" eliminarFavorito " class="margin-left-5 cursor-pointer "> 
+        {{ 'IMPUT_GEO.lbl_eliminarFavorito' | translate }} </span>
+    <span *ngIf="!eliminarFavorito " class="margin-left-5 cursor-pointer "> 
+        {{ 'IMPUT_GEO.lbl_agregarFavorito' | translate }} </span>
+</div>
